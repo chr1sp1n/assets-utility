@@ -1,0 +1,33 @@
+{
+	"temp_path":		"./.tmp/",
+	"deploy_path":		"./deploy/",
+	"source":{
+		"scss":[
+			{"ciao":["folder"]},
+			"base",
+			"layout",
+			"module",
+			"state",
+			"theme"
+		],		
+		"js":[],
+		"fonts":[]
+	},
+	"notifier":{
+		"success":{
+			"title":"Chr1Sp1n-Dev Assets Uility",
+			"message": "Task execution complete",
+			"onLast": true,
+			"icon": "./notifier/checked.png"
+		},
+		"error":{
+			"title":"Chr1Sp1n-Dev Assets Uility",
+			"message": "Error: ",
+			"onLast": false,
+			"icon": "./notifier/virus.png"
+		}
+	}
+}
+
+
+

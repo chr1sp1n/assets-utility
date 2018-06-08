@@ -1,0 +1,27 @@
+{
+  "name": "drupal-theme-utilities",
+  "version": "1.0.0",
+  "description": "drupal theme utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.chr1sp1n-dev.cloud/drupal/drupal-theme-maker.git"
+  },
+  "author": "chr1sp1n-dev",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^8.6.0",
+    "cssnano": "^3.10.0",
+    "directory-exists": "^2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-path": "^4.0.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "require-dir": "^1.0.0"
+  }
+}
