@@ -2,16 +2,9 @@
 	"temp_path":		"./.tmp/",
 	"deploy_path":		"./deploy/",
 	"source":{
-		"scss":[
-			{"ciao":["folder"]},
-			"base",
-			"layout",
-			"module",
-			"state",
-			"theme"
-		],		
-		"js":[],
-		"fonts":[]
+		"scss":"./source/scss/",
+		"js":"./source/js/",
+		"fonts":"./source/fonts/"		
 	},
 	"notifier":{
 		"success":{
