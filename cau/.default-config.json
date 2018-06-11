@@ -7,11 +7,7 @@
 		"path":				"./source",
 		"scss":{
 			"src":			"{{source.path}}/scss",
-			"dest":			"{{temp_path}}/css",			
-			"smacss":{
-				"priority": ["base","layout","module","state","theme"]
-			},
-			"concat": 		false
+			"dest":			"{{temp_path}}/css"
 		},
 		"js":				"{{source.path}}/js"		
 	},

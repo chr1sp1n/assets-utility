@@ -1,20 +1,18 @@
 'use strict';
 
 const gulp = require('gulp');
-var config = require('./config-reader');
+const config = require('./config-reader');
 const notifier = require('./notifier');
 
-var sass = require("gulp-sass");
-var sourcemaps = require("gulp-sourcemaps");
-var postcss = require("gulp-postcss");
-var autoprefixer = require("autoprefixer");
-var cssnano = require("cssnano");
 
-
-var concatcss = require('gulp-concat-css');
+const sass = require("gulp-sass");
+const sourcemaps = require("gulp-sourcemaps");
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
 
 module.exports = {
-	dev: function(done) {		
+	dev: function(done) {
 		gulp.src( config.get('source.scss.src') + "/**/*.scss" )
 			.pipe( sourcemaps.init() )
 			.pipe( 
@@ -26,7 +24,7 @@ module.exports = {
 			// 		autoprefixer(),
 			// 		cssnano()
 			// 	])
-			// )
+			// )			
 			.pipe(sourcemaps.write())
 			.pipe( 
 				gulp.dest( config.get('source.scss.dest') ) 
