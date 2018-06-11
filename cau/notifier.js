@@ -1,6 +1,6 @@
 'use strict';
 
-var config = require('./config-reader');
+var config = require('./config');
 var notify = require('gulp-notify');
 var path = require('path');
 
@@ -23,9 +23,13 @@ module.exports = {
 	success: function(){
 		return notify( options.success );
 	},
-	error: function(){
-		return notify.onError( options.error , function(){
-			process.exit(-1);
+	error: function(done){
+		return notify.onError( options.error , function(){			
+			if(config.get('notifier.stop_on_error')) {
+				process.exit(-1);
+			}else{
+				done();
+			}
 		});
 	}
 }

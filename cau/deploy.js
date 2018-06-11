@@ -1,7 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
-const config = require('./config-reader');
+const config = require('./config');
 const fileSync = require('gulp-file-sync');
 
 module.exports = {

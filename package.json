@@ -12,10 +12,13 @@
   },
   "author": "chr1sp1n-dev",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "path-exists": "^3.0.0"
+  },
   "devDependencies": {
     "gulp-clean": "^0.4.0",
-	"gulp-uglify": "^3.0.0",
+    "gulp-uglify": "^3.0.0",
     "autoprefixer": "^8.6.0",
     "cssnano": "^3.10.0",
     "gulp": "^4.0.0",
@@ -27,6 +30,6 @@
     "gulp-postcss": "^7.0.1",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "require-dir": "^1.0.0"	
+    "require-dir": "^1.0.0"
   }
 }

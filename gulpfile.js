@@ -4,6 +4,7 @@ const gulp = require('gulp');
 var requireDir = require('require-dir');
 var cau = requireDir('./cau');
 
+gulp.task('clean', cau.clean);
 gulp.task('sass:dev', cau.sass.dev);
 gulp.task('sass:dist', cau.sass.dist);
 gulp.task('deploy:dev', cau.deploy.dev);
@@ -12,34 +13,47 @@ gulp.task('assets:dev', cau.assets.dev);
 gulp.task('assets:dist', cau.assets.dist);
 gulp.task('js:dev', cau.js.dev);
 gulp.task('js:dist', cau.js.dist);
+gulp.task('watch', cau.watch);
+gulp.task('success', cau.success);
 
 /**************************************************************/
 
 
 gulp.task('dev', 
 	gulp.series(
-		'sass:dev' ,
-		'assets:dev' ,
+		'clean',
+		gulp.parallel(
+			'sass:dev',
+			'js:dev',
+			'assets:dev'
+		),
 		'deploy:dev',
-		function(done){ done(); }
+		'success'
 	)
 );
 
 gulp.task('dist', 
 	gulp.series(
-		'sass:dist' ,
-		'assets:dist',
+		'clean',
+		gulp.parallel(
+			'sass:dist',
+			'js:dist',
+			'assets:dist'
+		),
 		'deploy:dist',
-		function(done){ done(); }
+		'success'
 	)
 );
 
+gulp.task('watch', function(done){
+	var watcher = gulp.watch( cau.config.get('source.path') + '/**/*' , gulp.series('dev'));
+	watcher.on('error',function(err){
+		console.log(error);
+	});	
+})
+
 gulp.task('default', 
 	gulp.series( 
-		'dev',
-		function(done) {
-			gulp.src(".").pipe( cau.notifier.success() );
-			done();
-		}
+		'dev'
 	)
 );

@@ -1,7 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
-const config = require('./config-reader');
+const config = require('./config');
 const notifier = require('./notifier');
 
 
@@ -13,11 +13,11 @@ const cssnano = require("cssnano");
 
 module.exports = {
 	dev: function(done) {
-		gulp.src( config.get('source.scss.src') + "/**/*.scss" )
+		return gulp.src( config.get('source.scss.src') + "/**/*.scss" )
 			.pipe( sourcemaps.init() )
 			.pipe( 
 				sass()
-					.on( "error", notifier.error() ) 
+					.on( "error", notifier.error(done) ) 
 			)
 			// .pipe( 
 			// 	postcss([
@@ -28,12 +28,11 @@ module.exports = {
 			.pipe(sourcemaps.write())
 			.pipe( 
 				gulp.dest( config.get('source.scss.dest') ) 
-					.on( "error", notifier.error() )
+					.on( "error", notifier.error(done) )
 			);
-		done();
 	},
 	dist: function (done) {		
-		gulp.src( config.get('source.scss.src') + "/**/*.scss" )
+		return gulp.src( config.get('source.scss.src') + "/**/*.scss" )
 			//.pipe( sourcemaps.init() )
 			.pipe( 
 				sass()
@@ -49,7 +48,6 @@ module.exports = {
 			.pipe(
 				gulp.dest( config.get('source.scss.dest') )
 					.on( "error", notifier.error() )
-			);	
-		done();
+			);			
 	}
 }
