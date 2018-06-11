@@ -12,16 +12,21 @@
   },
   "author": "chr1sp1n-dev",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-clean": "^0.4.0",
+	"gulp-uglify": "^3.0.0",
     "autoprefixer": "^8.6.0",
     "cssnano": "^3.10.0",
     "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-file-sync": "^2.0.0",
+    "gulp-javascript-obfuscator": "^1.1.4",
     "gulp-notify": "^3.2.0",
     "gulp-path": "^4.0.0",
     "gulp-postcss": "^7.0.1",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "require-dir": "^1.0.0"
+    "require-dir": "^1.0.0"	
   }
 }

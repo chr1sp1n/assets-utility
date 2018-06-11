@@ -10,7 +10,8 @@ gulp.task('deploy:dev', cau.deploy.dev);
 gulp.task('deploy:dist', cau.deploy.dist);
 gulp.task('assets:dev', cau.assets.dev);
 gulp.task('assets:dist', cau.assets.dist);
-
+gulp.task('js:dev', cau.js.dev);
+gulp.task('js:dist', cau.js.dist);
 
 /**************************************************************/
 

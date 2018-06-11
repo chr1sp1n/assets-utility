@@ -9,7 +9,11 @@
 			"src":			"{{source.path}}/scss",
 			"dest":			"{{temp_path}}/css"
 		},
-		"js":				"{{source.path}}/js"		
+		"js":{
+			"src":			"{{source.path}}/js",
+			"dest":			"{{temp_path}}/js",
+			"cocat_to":		"scripts.js"
+		}	
 	},
 
 	"notifier":{
