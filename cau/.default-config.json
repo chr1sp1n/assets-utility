@@ -1,10 +1,12 @@
 {
 	"temp_path":		"./.tmp/",
-	"deploy_path":		"./deploy/",
+	"deploy_path_dev":		"./deploy/",
+	"deploy_path_dist":		"./deploy/",	
 	"source":{
-		"scss":"./source/scss/",
-		"js":"./source/js/",
-		"fonts":"./source/fonts/"		
+		"base":	"./source",
+		"scss":	"./source/scss/",
+		"js":	"./source/js/",
+		"fonts":"./source/fonts/"
 	},
 	"notifier":{
 		"success":{

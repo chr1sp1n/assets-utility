@@ -6,6 +6,8 @@ var cau = requireDir('./cau');
 
 gulp.task('sass:dev', cau.sass.dev);
 gulp.task('sass:dist', cau.sass.dist);
+gulp.task('deploy:dev', cau.deploy.dev);
+gulp.task('deploy:dist', cau.deploy.dist);
 
 
 /*****************************************/
@@ -13,6 +15,7 @@ gulp.task('sass:dist', cau.sass.dist);
 gulp.task('dev', 
 	gulp.series(
 		'sass:dev' ,
+		'deploy:dev',
 		function(done){ done(); }
 	)
 );
@@ -20,6 +23,7 @@ gulp.task('dev',
 gulp.task('dist', 
 	gulp.series(
 		'sass:dist' ,
+		'deploy:dist',
 		function(done){ done(); }
 	)
 );
