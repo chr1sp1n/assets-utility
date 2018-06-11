@@ -1,11 +1,9 @@
 'use strict';
 
-const defaultConfig = require("./.default-config.json");
-var config = require("../config.json");
-
 module.exports = {
 	read: function(){
-		
+		const defaultConfig = require("./.default-config.json");
+		var config = require("../config.json");
 		Object.keys(config).forEach(function(c){
 			if(defaultConfig[c]){
 				Object.keys(config[c]).forEach(function(sc){
@@ -18,7 +16,6 @@ module.exports = {
 		});
 		config = defaultConfig;
 		return config;
-
 	},
 	get: function(item){
 		if(typeof(item) == 'undefined') return '';
