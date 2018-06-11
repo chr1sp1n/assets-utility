@@ -1,3 +1,5 @@
+'use strict';
+
 const defaultConfig = require("./.default-config.json");
 var config = require("../config.json");
 
