@@ -1,27 +1,36 @@
 {
-	"temp_path":		"./.tmp/",
-	"deploy_path_dev":		"./deploy/",
-	"deploy_path_dist":		"./deploy/",	
-	"source":{
-		"base":	"./source",
-		"scss":	"./source/scss/",
-		"js":	"./source/js/",
-		"fonts":"./source/fonts/"
+	"temp_path":			"./.tmp",
+	"deploy_path_dev":		"./deploy",
+	"deploy_path_dist":		"./deploy",
+
+	"source":{		
+		"path":				"./source",
+		"scss":{
+			"src":			"{{source.path}}/scss",
+			"dest":			"{{temp_path}}/css",			
+			"smacss":{
+				"priority": ["base","layout","module","state","theme"]
+			},
+			"concat": 		false
+		},
+		"js":				"{{source.path}}/js"		
 	},
+
 	"notifier":{
 		"success":{
-			"title":"Chr1Sp1n-Dev Assets Uility",
-			"message": "Task execution complete",
-			"onLast": true,
-			"icon": "./notifier/checked.png"
+			"title":		"Chr1Sp1n-Dev Assets Uility",
+			"message": 		"Task execution complete",
+			"onLast": 		true,
+			"icon": 		"./notifier/checked.png"
 		},
 		"error":{
-			"title":"Chr1Sp1n-Dev Assets Uility",
-			"message": "Error: ",
-			"onLast": false,
-			"icon": "./notifier/virus.png"
+			"title":		"Chr1Sp1n-Dev Assets Uility",
+			"message": 		"Error: ",
+			"onLast": 		false,
+			"icon": 		"./notifier/virus.png"
 		}
 	}
+
 }
 
 
