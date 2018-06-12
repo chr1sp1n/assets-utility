@@ -109,7 +109,7 @@ Esempio:
             "dest":  "{{temp_path}}/css"
         }
 ```
-In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite contatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente:<br>
+In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite concatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente:<br>
 `"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
 
 Di seguito l'elenco completo delle opzioni:
@@ -131,5 +131,7 @@ Configurazione necessaria per il task `db:dump`
 -	`db.user`:	Utente del database. *Esempio: nomedellutente*
 -	`db.password`: Password. Esempio: *lamiapassword*
 -	`db.dest`: Percorso in cui verranno salvati i dump. *Esempio: ./db-dump*
--	`db.site_hosts.dev`: URL del sito in modalità sviluppo. *Esempio: http://demo.ilmiosito.it*
--	`db.site_hosts.dist`: URL del sito in modalità distribuzione. *Esempio: http://ilmiosito.it*
+-	`site.type`: Tipologia del sito. *Esempio: wordpress"
+-	`site.hosts.dev`: URL del sito in modalità sviluppo. *Esempio: http://demo.ilmiosito.it*
+-	`site.hosts.dist`: URL del sito in modalità distribuzione. *Esempio: http://ilmiosito.it*
+

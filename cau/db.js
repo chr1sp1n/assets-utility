@@ -36,9 +36,11 @@ module.exports = {
 		if(typeof(db_conf) == 'undefined') done();
 		return dump(db_conf)
 			.then(function(filename){
-				return gulp.src(db_conf.dest + '/' + filename)
-					.pipe( replace(db_conf.site_hosts.dev, db_conf.site_hosts.dist) )
-					.pipe( gulp.dest( db_conf.dest + "/dist" ) );
+				if(site.type == 'wordpress'){
+					return gulp.src(db_conf.dest + '/' + filename)
+						.pipe( replace(db_conf.site.hosts.dev, db_conf.site.hosts.dist) )
+						.pipe( gulp.dest( db_conf.dest + "/dist" ) );
+				}
 			})
 			.catch(function(err){
 				notifier.error(done, err);
