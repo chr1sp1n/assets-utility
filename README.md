@@ -125,10 +125,10 @@ Di seguito l'elenco completo delle opzioni:
 
 Configurazione necessaria per il task `db:dump`
 
--	`db.host`: Nome host del databese
--	`db.database`: Nome del database
--	`db.user`:	Utente del database
--	`db.password`: Password
--	`db.dest`: Percorso in cui verranno salvati i dump
--	`db.site_hosts.dev`: URL del sito in modalità sviluppo
--	`db.site_hosts.dist`: URL del sito in modalità distribuzione 
+-	`db.host`: Nome host del databese. *Esempio: localhost*
+-	`db.database`: Nome del database. *Esempio: nomedeldatabase*
+-	`db.user`:	Utente del database. *Esempio: nomedellutente*
+-	`db.password`: Password. Esempio: *lamiapassword*
+-	`db.dest`: Percorso in cui verranno salvati i dump. *Esempio: ./db-dump*
+-	`db.site_hosts.dev`: URL del sito in modalità sviluppo. *Esempio: http://demo.ilmiosito.it*
+-	`db.site_hosts.dist`: URL del sito in modalità distribuzione. *Esempio: http://ilmiosito.it*
