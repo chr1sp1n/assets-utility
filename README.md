@@ -62,7 +62,7 @@ Task 3 - `gulp js:dev` provvede alla copia dei file JavaScript presenti nel perc
 
 Task 4 - `gulp assets:dev` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
 
-**Task 5** - `deploy:dev` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dev`.
+Task 5 - `deploy:dev` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dev`.
  
 <br>
 In modalità distribuzione (`gulp dist`) lo script provvede all'esecuzione dei seguenti task:
@@ -81,7 +81,7 @@ Task 3 - `gulp js:dist` provvede alla concatenazione, minificazione e offuscazio
 
 Task 4 - `gulp assets:dist` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
 
-**Task 5** - `deploy:dist` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dist`.
+Task 5 - `deploy:dist` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dist`.
 
 In caso di errore viene visualizzato nell'area di notifica un pop-up riportante informazioni relative all'errore.
 
