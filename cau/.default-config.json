@@ -1,9 +1,9 @@
 {
 	"temp_path":			"./.tmp",
 	"deploy_path_dev":		"./deploy",
-	"deploy_path_dist":		"./deploy",
+	"deploy_path_dist":		"{{deploy_path_dev}}",
 
-	"source":{		
+	"source":{
 		"path":				"./source",
 		"scss":{
 			"src":			"{{source.path}}/scss",

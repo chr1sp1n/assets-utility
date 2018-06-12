@@ -94,7 +94,6 @@ E' possibile utilizzare la concatenazione nel definire le opzioni utilizzando le
 
 Esempio:
 ```json
-...
 "temp_path":  "./.tmp",
 "source":{		
     "path":  "./source",
@@ -102,7 +101,6 @@ Esempio:
             "src":  "{{source.path}}/scss",
             "dest":  "{{temp_path}}/css"
         }
-...
 ```
 In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite contatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente: `"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
 
