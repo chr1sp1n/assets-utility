@@ -95,9 +95,9 @@ In caso di errore viene visualizzato nell'area di notifica un pop-up riportante 
 
 ### **Configurazione:**
 
-Lo script consente la personalizzazione di tutte le opzioni che sono comunque già inizializzate con valori di default.
-La personalizzazione è possibile nel file `config.json` presente nella root del progetto. 
-E' possibile utilizzare la concatenazione nel definire le opzioni utilizzando le doppie parentesi graffe. 
+Lo script consente la personalizzazione di tutte le opzioni che sono comunque già inizializzate con valori di default.<br>
+La personalizzazione è possibile nel file `config.json` presente nella root del progetto.<br>
+Le opzioni possono contenere il contenuto di altre opzioni con l'utilizzo di doppie parentesi graffe.
 
 Esempio:
 ```json
@@ -109,7 +109,8 @@ Esempio:
             "dest":  "{{temp_path}}/css"
         }
 ```
-In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite contatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente: `"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
+In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite contatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente:<br>
+`"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
 
 Di seguito l'elenco completo delle opzioni:
 
