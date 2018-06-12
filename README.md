@@ -95,7 +95,8 @@ In caso di errore viene visualizzato nell'area di notifica un pop-up riportante 
 
 ### **Configurazione:**
 
-Lo script consente la personalizzazione di molti parametri, ciò è possibile editando il file `config.json` presente nella root del progetto.
+Lo script consente la personalizzazione di tutte le opzioni che sono comunque già inizializzate con valori di default.
+La personalizzazione è possibile nel file `config.json` presente nella root del progetto. 
 E' possibile utilizzare la concatenazione nel definire le opzioni utilizzando le doppie parentesi graffe. 
 
 Esempio:
@@ -110,7 +111,7 @@ Esempio:
 ```
 In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite contatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente: `"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
 
-Di seguito l'elenco completo dei parametri:
+Di seguito l'elenco completo delle opzioni:
 
 -	`temp_path`: (./.tmp/) Percorso temporaneo in cui scrivere i file elaborati
 -	`deploy_path_dev`: (./deploy/) Percorso di destinazione dei file elaborati in modalità sviluppo
@@ -126,8 +127,8 @@ Configurazione necessaria per il task `db:dump`
 
 -	`db.host`: Nome host del databese
 -	`db.database`: Nome del database
--	`user`:	Utente del database
--	`password`: Password
--	`dest`: Percorso in cui verranno salvati i dump
--	`site_hosts.dev`: URL del sito in modalità sviluppo
--	`site_hosts.dist`: URL del sito in modalità distribuzione 
+-	`db.user`:	Utente del database
+-	`db.password`: Password
+-	`db.dest`: Percorso in cui verranno salvati i dump
+-	`db.site_hosts.dev`: URL del sito in modalità sviluppo
+-	`db.site_hosts.dist`: URL del sito in modalità distribuzione 

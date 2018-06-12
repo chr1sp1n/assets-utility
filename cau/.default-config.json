@@ -30,7 +30,7 @@
 			"icon": 		"./notifier/virus.png"
 		}	
 	},
-	"stop_on_error":	true
+	"stop_on_error":	false
 
 }
 
