@@ -8,6 +8,7 @@
 -	Compilazione e ottimizzazione del codice SASS
 -	Compilazione e ottimizzazione del codice JavaScript
 -	Deploy automatico nel progetto di destinazione
+-	Dump automatico del databese utilizzato nel progetto
 
 ---
 
@@ -37,6 +38,11 @@ Esegue lo script in modalita distribuzione.
 Esegue lo script in modalita watcher.<br>
 Questa modalità attiva il monitoraggio dei file presenti nelle cartella source configurata con l'opzione `source.path`. In caso di modifica di uno dei file viene avviato il task `gulp dev`.<br>
 Il monitoraggio può essere interrotto mediante la combinazione di tasti `ctrl+c`.
+
+> `gulp db:dump`
+
+Se configurata la sezione `db` nel file `config.json` effettua un dump del db specificato.
+
 
 > `gulp`
 
@@ -115,3 +121,13 @@ Di seguito l'elenco completo dei parametri:
 -	`source.js.src`: ({{source.path}}/js/) Persorso dei sorgenti JavaScript
 -	`source.js.dest`: ({{temp_path}}/js/) Percorso di destinazione dei file JavaScript elaborati
 -	`source.js.cocat_to`: (scripts.js) Nome del file risultante della concatenazione dei files JavaScript
+
+Configurazione necessaria per il task `db:dump`
+
+-	`db.host`: Nome host del databese
+-	`db.database`: Nome del database
+-	`user`:	Utente del database
+-	`password`: Password
+-	`dest`: Percorso in cui verranno salvati i dump
+-	`site_hosts.dev`: URL del sito in modalità sviluppo
+-	`site_hosts.dist`: URL del sito in modalità distribuzione 
