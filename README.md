@@ -95,7 +95,7 @@ In caso di errore viene visualizzato nell'area di notifica un pop-up riportante 
 
 ### **Configurazione:**
 
-Lo script consente la personalizzazione di tutte le opzioni che sono comunque già inizializzate con valori di default.<br>
+Lo script consente la personalizzazione di tutte le opzioni che sono comunque inizializzate con valori di default.<br>
 La personalizzazione è possibile nel file `config.json` presente nella root del progetto.<br>
 Le opzioni possono contenere il valore di altre opzioni con l'utilizzo di doppie parentesi graffe.
 
