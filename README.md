@@ -56,13 +56,13 @@ Questo task provede alla pulizia della cartella di destinazione temporanea defin
 
 I task sopra elencati vengono eseguiti parallelamente al fine di ottimizzare il tempo di elaborazione totale.
 
-Task 2 - `gulp sass:dev` provvede alla compilazione dei file .scss trovati nella cartella definita con l'opzione `source.scss.src`, inoltre accoda ad ogni file la relativa sourcemap. Il task preserva la struttura dello scaffolding e in caso di inclusioni effettua le dovute concatenazioni. I file e le cartelle ottenute vengono scritte nella cartella temporanea.
+&nbsp;Task 2 - `gulp sass:dev` provvede alla compilazione dei file .scss trovati nella cartella definita con l'opzione `source.scss.src`, inoltre accoda ad ogni file la relativa sourcemap. Il task preserva la struttura dello scaffolding e in caso di inclusioni effettua le dovute concatenazioni. I file e le cartelle ottenute vengono scritte nella cartella temporanea.
 
-Task 3 - `gulp js:dev` provvede alla copia dei file JavaScript presenti nel percorso definito con l'opzione `source.js.src` nella cartella definita con l'opzione `source.js.dest` preservandone lo scaffolding originale.
+&nbsp;Task 3 - `gulp js:dev` provvede alla copia dei file JavaScript presenti nel percorso definito con l'opzione `source.js.src` nella cartella definita con l'opzione `source.js.dest` preservandone lo scaffolding originale.
 
-Task 4 - `gulp assets:dev` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
+&nbsp;Task 4 - `gulp assets:dev` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
 
-Task 5 - `deploy:dev` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dev`.
+**Task 5** - `deploy:dev` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dev`.
  
 <br>
 In modalità distribuzione (`gulp dist`) lo script provvede all'esecuzione dei seguenti task:
@@ -75,13 +75,13 @@ Questo task provede alla pulizia della cartella di destinazione temporanea defin
 
 I task sopra elencati vengono eseguiti parallelamente al fine di ottimizzare il tempo di elaborazione totale.
 
-Task 2 - `gulp sass:dist` provvede alla compilazione dei file .scss trovati nella cartella definita con l'opzione `source.scss.src`, inoltre aggiunge eventuali prefissi cross-browser e minifica il codice risultante. Il task preserva la struttura dello scaffolding e in caso di inclusioni effettua le dovute concatenazioni. I file e le cartelle ottenute vengono scritte nella cartella temporanea.
+&nbsp;Task 2 - `gulp sass:dist` provvede alla compilazione dei file .scss trovati nella cartella definita con l'opzione `source.scss.src`, inoltre aggiunge eventuali prefissi cross-browser e minifica il codice risultante. Il task preserva la struttura dello scaffolding e in caso di inclusioni effettua le dovute concatenazioni. I file e le cartelle ottenute vengono scritte nella cartella temporanea.
 
-Task 3 - `gulp js:dist` provvede alla concatenazione, minificazione e offuscazione dei file JavaScript presenti nel percorso definito con l'opzione `source.js.src`. Il codice risultante viene scritto nel file definito con l'opzione `source.js.cocat_to` quindi copiato nella cartella definita con l'opzione `source.js.dest`.
+&nbsp;Task 3 - `gulp js:dist` provvede alla concatenazione, minificazione e offuscazione dei file JavaScript presenti nel percorso definito con l'opzione `source.js.src`. Il codice risultante viene scritto nel file definito con l'opzione `source.js.cocat_to` quindi copiato nella cartella definita con l'opzione `source.js.dest`.
 
-Task 4 - `gulp assets:dist` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
+&nbsp;Task 4 - `gulp assets:dist` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
 
-Task 5 - `deploy:dist` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dist`.
+**Task 5** - `deploy:dist` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dist`.
 
 In caso di errore viene visualizzato nell'area di notifica un pop-up riportante informazioni relative all'errore.
 
