@@ -93,17 +93,17 @@ Lo script consente la personalizzazione di molti parametri, ciò è possibile ed
 E' possibile utilizzare la concatenazione nel definire le opzioni utilizzando le doppie parentesi graffe. 
 
 Esempio:
->```json
->...
->"temp_path":  "./.tmp",
->"source":{		
->    "path":  "./source",
->        "scss":{
->            "src":  "{{source.path}}/scss",
->            "dest":  "{{temp_path}}/css"
->        }
->...
->```
+```json
+...
+"temp_path":  "./.tmp",
+"source":{		
+    "path":  "./source",
+        "scss":{
+            "src":  "{{source.path}}/scss",
+            "dest":  "{{temp_path}}/css"
+        }
+...
+```
 In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite contatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente: `"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
 
 Di seguito l'elenco completo dei parametri:
