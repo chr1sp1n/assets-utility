@@ -32,14 +32,15 @@ const dump = function(config){
 
 module.exports = {
 	dump: function(done) {
-		var db_conf = config.get('db');
-		if(typeof(db_conf) == 'undefined') done();
-		return dump(db_conf)
+		var db = config.get('db');
+		var site = config.get('site');
+		if(typeof(db) == 'undefined' || typeof(site) == 'undefined') done();
+		return dump(db)
 			.then(function(filename){
 				if(site.type == 'wordpress'){
-					return gulp.src(db_conf.dest + '/' + filename)
-						.pipe( replace(db_conf.site.hosts.dev, db_conf.site.hosts.dist) )
-						.pipe( gulp.dest( db_conf.dest + "/dist" ) );
+					return gulp.src(db.dest + '/' + filename)
+						.pipe( replace(site.hosts.dev, site.hosts.dist) )
+						.pipe( gulp.dest( db.dest + "/dist" ) );
 				}
 			})
 			.catch(function(err){

@@ -1,14 +1,14 @@
 {
-  "name": "drupal-theme-utilities",
+  "name": "chr1sp1n-dev-assets-utility",
   "version": "1.0.0",
-  "description": "drupal theme utilities",
+  "description": "Chr1Sp1n-dev assets utility",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.chr1sp1n-dev.cloud/drupal/drupal-theme-maker.git"
+    "url": "https://github.com/chr1sp1n/assets-utility.git"
   },
   "author": "chr1sp1n-dev",
   "license": "ISC",

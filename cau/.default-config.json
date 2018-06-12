@@ -1,10 +1,10 @@
 {
 	"temp_path":			"./.tmp",
-	"deploy_path_dev":		"./deploy",
+	"deploy_path_dev":		"../www/wp-content/themes/veronicanardulli",
 	"deploy_path_dist":		"{{deploy_path_dev}}",
 
 	"source":{
-		"path":				"./source",
+		"path":				"../source",
 		"scss":{
 			"src":			"{{source.path}}/scss",
 			"dest":			"{{temp_path}}/css"

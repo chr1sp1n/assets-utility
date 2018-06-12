@@ -4,8 +4,8 @@ const pathExists = require('path-exists');
 
 module.exports = {
 	read: function(){
-		const defaultConfig = require("./.default-config.json");
-		if(pathExists.sync("../config.json")){
+		const defaultConfig = require("./.default-config.json");		
+		if(pathExists.sync( __dirname + "/../config.json" )){
 			var config = require("../config.json");
 			Object.keys(config).forEach(function(c){
 				if(defaultConfig[c]){
@@ -20,8 +20,8 @@ module.exports = {
 				}
 			});
 		}
-		config = defaultConfig;
-		return config;
+		//config = JSON.parse(JSON.stringify(defaultConfig));
+		return JSON.parse(JSON.stringify(defaultConfig));;
 	},
 	get: function(item){
 		if(typeof(item) == 'undefined') return undefined;
