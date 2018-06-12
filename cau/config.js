@@ -12,13 +12,15 @@ module.exports = {
 					}
 					defaultConfig[c][sc] = config[c][sc];
 				});
+			}else{
+				defaultConfig[c] = config[c];
 			}
 		});
 		config = defaultConfig;
 		return config;
 	},
 	get: function(item){
-		if(typeof(item) == 'undefined') return '';
+		if(typeof(item) == 'undefined') return undefined;
 		var config = this.read();
 		var data = eval('config.'+item);		
 		if(typeof(data) == 'string'){

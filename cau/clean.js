@@ -10,14 +10,10 @@ const notifier = require('./notifier');
 module.exports = function(done) {
 	if(pathExists.sync(config.get('temp_path'))){
 		return gulp.src( config.get('temp_path') + '/**/*.*' , {read: false})
-			.pipe( clean() , function(){
-				console.log("cuai");
-			});
-		//done();
+			.pipe( clean() );
 	}else{
 		mkdirp( config.get('temp_path'), function(err){
-			if(err) notifier.error(err);
-			done();
+			if(err) notifier.error(done, err);			
 		});
 	}	
 }

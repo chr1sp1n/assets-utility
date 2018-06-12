@@ -23,13 +23,14 @@ module.exports = {
 	success: function(){
 		return notify( options.success );
 	},
-	error: function(done){
+	error: function(done,err){
 		return notify.onError( options.error , function(){			
-			if(config.get('notifier.stop_on_error')) {
+			if(config.get('stop_on_error')) {
 				process.exit(-1);
 			}else{
 				done();
 			}
+			console.error(err);
 		});
 	}
 }

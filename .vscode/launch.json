@@ -7,7 +7,7 @@
             "request": "launch",
             "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
             "stopOnEntry": false,
-            "args": ["sass:dev"],
+            "args": ["db:dump"],
             "cwd": "${workspaceRoot}",
             "runtimeArgs": [
                 "--nolazy"

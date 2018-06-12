@@ -1,1 +1,13 @@
-{}
+{
+	"db":{
+		"host": "localhost",
+		"database": "veronicanardulli",
+		"user": "veronicanardulli",
+		"password": "sSQy7bDVpf4fzwae",		
+		"dest": "./db-dump",
+		"site_hosts": {
+			"dev":"http://wordpress.local/veronica-nardulli-wordpress/www",
+			"dist":"http://wordpress.local/veronica-nardulli-wordpress/www"
+		}
+	}
+}
