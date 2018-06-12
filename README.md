@@ -1,57 +1,119 @@
 
 # Chr1Sp1n-dev Assets Utility
-### Questo script gulp mette a disposizione dell'utente una piattaforma semplice e affidabile per la gestione degli assets front-end e non.
-#### Lo script consente:
--	Due modalità di esecuzione: sviluppo e produzione
+
+## Utility gulp 4 per la gestione semplificata degli assets front-end e non.
+### Lo script consente:
+-	Tre modalità di esecuzione: sviluppo, distribuzione e watcher
 -	L'organizzare e la standardizzazione dello scaffolding per qualsiasi tipo di progetto (wordpress, drupal, php, etc)
 -	Compilazione e ottimizzazione del codice SASS
 -	Compilazione e ottimizzazione del codice JavaScript
 -	Deploy automatico nel progetto di destinazione
--	Conservazione dello scaffolding previsto dal progetto
 
-#### Come funziona:
-### Modalità sviluppo:
-Lo script come prima cosa provvede alla pulizia della cartella di destinazione temporanea (vedi opzione `temp_path`) quindi procede all'elaborazione dei file presenti nella cartella source (vedi opzione `source.path`).
-L'elaborazione in modalità sviluppo prevede la compilazione del codice SASS nella cartella di destinazione del codice elaborato (vedi opzione `source.scss.src`) preservandone la struttura delle cartelle, la clonazione dei file JavaScript presenti nella cartella sorgente (vedi opzione `source.js.src`) e relativa struttura delle cartelle nella cartella di destinazione (vedi opzione `source.scss.dest`). Eventuali altri file e cartelle presenti nella cartella source verranno clonati nella cartella di destinazione temporanea.
-Terminata l'elaborazione la cartella di destinazione temporanea viene sincronizzata con la cartella di distribuzione (vedi opzione `deploy_path_dev`).
+---
 
-### Modalità produzione:
-Lo script come prima cosa provvede alla pulizia della cartella di destinazione temporanea (vedi opzione `temp_path`) quindi procede all'elaborazione dei file presenti nella cartella source (vedi opzione `source.path`).
-L'elaborazione in modalità produzione prevede la compilazione del codice SASS nella cartella di destinazione del codice elaborato (vedi opzione `source.scss.src`) preservandone la struttura delle cartelle. La compilazione provvede inoltre alla ottimizzazione del codice aggiungendo prefissi cross-browser e alla minificazione. Segue la concatenazione, minificazione e offuscazione dei file JavaScript  nella cartella di destinazione (vedi opzione `source.scss.dest`). Eventuali altri file e cartelle presenti nella cartella source verranno clonati nella cartella di destinazione temporanea.
-Terminata l'elaborazione la cartella di destinazione temporanea viene sincronizzata con la cartella di distribuzione (vedi opzione `deploy_path_dev`).
-
-
-In caso di errore viene visualizzato nell'area di notifica un pop-up riportante informazioni relative all'errore.
-
-
-## Utilizzo:
-
-#### Download e installazione:
+### **Installazione:**
 -	Clonare il repository https://git.chr1sp1n-dev.cloud/utility/chr1sp1n-assets-utility.git con il comando:
 > `git clone https://git.chr1sp1n-dev.cloud/utility/chr1sp1n-assets-utility.git`
 
 -	Installare le dipendenze con il comando:
 > `npm install`
 
-#### Configurazione:
-Lo script consente la personalizzazione di molti parametri, ciò è possibile editando il file config.json prente nella root del progetto.
+---
+
+### **Utilizzo:**
+
+E' possibile eseguire lo script nelle tre modalità previste con i seguenti comandi:
+
+> `gulp dev`
+
+Esegue lo script in modalita sviluppo.
+
+> `gulp dist`
+
+Esegue lo script in modalita distribuzione.
+
+> `gulp watch`
+
+Esegue lo script in modalita watcher.<br>
+Questa modalità attiva il monitoraggio dei file presenti nelle cartella source configurata con l'opzione `source.path`. In caso di modifica di uno dei file viene avviato il task `gulp dev`.<br>
+Il monitoraggio può essere interrotto mediante la combinazione di tasti `ctrl+c`.
+
+> `gulp`
+
+Alias di `gulp dev`.
+
+---
+
+### **Funzionamento nel dettaglio:**
+
+In modalità sviluppo (`gulp dev`) lo script provvede all'esecuzione dei seguenti task:
+
+**Task 1** - `gulp clean`
+
+Questo task provede alla pulizia della cartella di destinazione temporanea definita con l'opzione `temp_path`.
+
+**Task 2, 3, 4** - `gulp sass:dev`, `gulp js:dev`, `gulp assets:dev`
+
+I task sopra elencati vengono eseguiti parallelamente al fine di ottimizzare il tempo di elaborazione totale.
+
+Task 2 - `gulp sass:dev` provvede alla compilazione dei file .scss trovati nella cartella definita con l'opzione `source.scss.src`, inoltre accoda ad ogni file la relativa sourcemap. Il task preserva la struttura dello scaffolding e in caso di inclusioni effettua le dovute concatenazioni. I file e le cartelle ottenute vengono scritte nella cartella temporanea.
+
+Task 3 - `gulp js:dev` provvede alla copia dei file JavaScript presenti nel percorso definito con l'opzione `source.js.src` nella cartella definita con l'opzione `source.js.dest` preservandone lo scaffolding originale.
+
+Task 4 - `gulp assets:dev` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
+
+**Task 5** - `deploy:dev` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dev`.
+ 
+<br>
+In modalità distribuzione (`gulp dist`) lo script provvede all'esecuzione dei seguenti task:
+
+**Task 1** - `gulp clean`
+
+Questo task provede alla pulizia della cartella di destinazione temporanea definita con l'opzione `temp_path`.
+
+**Task 2, 3, 4** - `gulp sass:dist`, `gulp js:dist`, `gulp assets:dist`
+
+I task sopra elencati vengono eseguiti parallelamente al fine di ottimizzare il tempo di elaborazione totale.
+
+Task 2 - `gulp sass:dist` provvede alla compilazione dei file .scss trovati nella cartella definita con l'opzione `source.scss.src`, inoltre aggiunge eventuali prefissi cross-browser e minifica il codice risultante. Il task preserva la struttura dello scaffolding e in caso di inclusioni effettua le dovute concatenazioni. I file e le cartelle ottenute vengono scritte nella cartella temporanea.
+
+Task 3 - `gulp js:dist` provvede alla concatenazione, minificazione e offuscazione dei file JavaScript presenti nel percorso definito con l'opzione `source.js.src`. Il codice risultante viene scritto nel file definito con l'opzione `source.js.cocat_to` quindi copiato nella cartella definita con l'opzione `source.js.dest`.
+
+Task 4 - `gulp assets:dist` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
+
+**Task 5** - `deploy:dist` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dist`.
+
+In caso di errore viene visualizzato nell'area di notifica un pop-up riportante informazioni relative all'errore.
+
+---
+
+### **Configurazione:**
+
+Lo script consente la personalizzazione di molti parametri, ciò è possibile editando il file `config.json` presente nella root del progetto.
+E' possibile utilizzare la concatenazione nel definire le opzioni utilizzando le doppie parentesi graffe. 
+
+Esempio:
+>```json
+>...
+>"temp_path":  "./.tmp",
+>"source":{		
+>    "path":  "./source",
+>        "scss":{
+>            "src":  "{{source.path}}/scss",
+>            "dest":  "{{temp_path}}/css"
+>        }
+>...
+>```
+In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite contatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente: `"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
 
 Di seguito l'elenco completo dei parametri:
 
--	`temp_path`:
-Percorso temporaneo in cui scrivere i file elaborati. Il contenuto di questa cartella verra clonato al termine dell'elaborazione nella cartella configurata con la proprietà `deploy_path_dev` o `deploy_path_dist`.
--	`deploy_path_dev`: Percorso di destinazione dei file elaborati in modalità sviluppo
--	`deploy_path_dist`: Percorso di destinazione dei file elaborati in modalità produzione 
--	`source.path`: Persorso base dei sorgenti 
--	`source.scss.src`: Persorso dei sorgenti SASS. I file il cui nome inizia con il simbolo _ sono considerati inclusioni quindi ignorati se non esplicitamnte importati con il comando `@import "path/nome del file";`
--	`source.scss.dest`: Persorso di destinazione dei file SASS compilati. Percorso relativo all'opzione `deploy_path_dist`. Lo script mantiene la struttura originale delle cartelle.
--	`source.js.src`: Persorso dei sorgenti JavaScript. Eseguendo lo script in modalità sviluppo questi si limiterà a clonare la struttura e i file nella cartella di destinazione specificata con l'opzione `source.js.dest`. Lo script mantiene la struttura originale delle cartelle. Nel caso della modalità produzione tutti i file JavaScript vengono concatenati minimizzati e offuscati quindi clonati nella cartella di destinazione specificata con l'opzione `source.js.dest`.
--	`source.js.dest`: Percorso di destinazione dei file JavaScript elaborati. Percorso relativo all'opzione `deploy_path_dist`.
--	`source.js.cocat_to`: Nome del file risultante della concatenazione dei file JavaScript.
--	`notifier.success.title`: Titolo visualizzato nel pop-up di notifica in caso di successo.
--	`notifier.success.message`: Messaggio visualizzato nel pop-up di notifica in caso di successo.
--	`notifier.success.icon`: Percorso del file icona visualizzata nel pop-up di notifica in caso di successo.
--	`notifier.error.title`: Titolo visualizzato nel pop-up di notifica in caso d'errore.
--	`notifier.error.message`: Messaggio visualizzato nel pop-up di notifica in caso d'errore.
--	`notifier.error.icon`: Percorso del file icona visualizzata nel pop-up di notifica in caso d'errore.
--	`notifier.stop_on_error`: Se `true` lo script viene interrotto in caso di errore altriment procede nell'elaborazione.
+-	`temp_path`: (./.tmp/) Percorso temporaneo in cui scrivere i file elaborati
+-	`deploy_path_dev`: (./deploy/) Percorso di destinazione dei file elaborati in modalità sviluppo
+-	`deploy_path_dist`: (./deploy/) Percorso di destinazione dei file elaborati in modalità distribuzione 
+-	`source.path`: (./source/) Persorso base dei sorgenti 
+-	`source.scss.src`: ({{source.path}}/scss/) Persorso dei sorgenti SASS
+-	`source.scss.dest`: ({{temp_path}}/css/) Persorso di destinazione dei file SASS compilati
+-	`source.js.src`: ({{source.path}}/js/) Persorso dei sorgenti JavaScript
+-	`source.js.dest`: ({{temp_path}}/js/) Percorso di destinazione dei file JavaScript elaborati
+-	`source.js.cocat_to`: (scripts.js) Nome del file risultante della concatenazione dei file JavaScript
