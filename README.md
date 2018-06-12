@@ -2,7 +2,7 @@
 # Chr1Sp1n-dev Assets Utility
 
 ## Utility gulp 4 per la gestione semplificata degli assets front-end e non.
-### Lo script consente:
+### Features:
 -	Tre modalità di esecuzione: sviluppo, distribuzione e watcher
 -	L'organizzare e la standardizzazione dello scaffolding per qualsiasi tipo di progetto (wordpress, drupal, php, etc)
 -	Compilazione e ottimizzazione del codice SASS
