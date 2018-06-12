@@ -116,4 +116,4 @@ Di seguito l'elenco completo dei parametri:
 -	`source.scss.dest`: ({{temp_path}}/css/) Persorso di destinazione dei file SASS compilati
 -	`source.js.src`: ({{source.path}}/js/) Persorso dei sorgenti JavaScript
 -	`source.js.dest`: ({{temp_path}}/js/) Percorso di destinazione dei file JavaScript elaborati
--	`source.js.cocat_to`: (scripts.js) Nome del file risultante della concatenazione dei file JavaScript
+-	`source.js.cocat_to`: (scripts.js) Nome del file risultante della concatenazione dei files JavaScript
