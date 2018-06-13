@@ -21,8 +21,11 @@
 
 -	Per customizzare le opzioni creare il file `config.json` appena fuori la directory `assets.utility`.
 ```
+...
 assets-utility
 assets-config.json
+...
+```
 
 ---
 
