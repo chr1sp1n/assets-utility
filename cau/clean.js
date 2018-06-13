@@ -14,7 +14,9 @@ module.exports = function(done) {
 	}else{
 		mkdirp( config.get('temp_path'), function(err){
 			if(err) notifier.error(done, err);			
+			return;
 		});
+		done();
 	}	
 }
 
