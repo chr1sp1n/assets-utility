@@ -13,11 +13,16 @@
 ---
 
 ### **Installazione:**
--	Clonare il repository https://git.chr1sp1n-dev.cloud/utility/chr1sp1n-assets-utility.git con il comando:
+-	Clonare il repository https://github.com/chr1sp1n/assets-utility.git con il comando:
 > `git clone https://git.chr1sp1n-dev.cloud/utility/chr1sp1n-assets-utility.git`
 
 -	Installare le dipendenze con il comando:
 > `npm install`
+
+-	Per customizzare le opzioni creare il file `config.json` appena fuori la directory `assets.utility`.
+```
+assets-utility
+assets-config.json
 
 ---
 
