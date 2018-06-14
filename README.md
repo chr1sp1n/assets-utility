@@ -14,7 +14,7 @@
 
 ### **Installazione:**
 -	Clonare il repository https://github.com/chr1sp1n/assets-utility.git con il comando:
-> `git clone https://git.chr1sp1n-dev.cloud/utility/chr1sp1n-assets-utility.git`
+> `git clone https://github.com/chr1sp1n/assets-utility.git`
 
 -	Installare le dipendenze con il comando:
 > `npm install`
