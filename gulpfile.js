@@ -16,6 +16,7 @@ gulp.task('js:dist', cau.js.dist);
 gulp.task('db:dump', cau.db.dump);
 gulp.task('watch', cau.watch);
 gulp.task('success', cau.success);
+gulp.task('init', cau.init);
 
 /**************************************************************/
 

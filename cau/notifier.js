@@ -1,8 +1,8 @@
 'use strict';
 
-var config = require('./config');
-var notify = require('gulp-notify');
-var path = require('path');
+const config = require('./config');
+const notify = require('gulp-notify');
+const path = require('path');
 
 var options = {
 	success:{
@@ -16,7 +16,13 @@ var options = {
 		"message": config.get('notifier.error.message') + '<%= error.message %>',
 		"onLast": config.get('notifier.error.onLast'),
 		"icon": path.join(__dirname, config.get('notifier.error.icon'))		
-	}		
+	},
+	message:{
+		"title": config.get('notifier.message.title'),
+		"message": config.get('notifier.message.message'),
+		"onLast": config.get('notifier.message.onLast'),
+		"icon": path.join(__dirname, config.get('notifier.message.icon'))
+	}
 };
 
 module.exports = {
@@ -32,5 +38,10 @@ module.exports = {
 			}
 			console.error(err);
 		});
+	},
+	message: function(done,msg){
+		var opts = JSON.parse(JSON.stringify(options.message));
+		opts.message = msg;
+		return notify( opts );
 	}
 }

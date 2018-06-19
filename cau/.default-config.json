@@ -28,7 +28,13 @@
 			"message": 		"Error: ",
 			"onLast": 		false,
 			"icon": 		"./notifier/virus.png"
-		}	
+		},
+		"message":{
+			"title":		"Chr1Sp1n-Dev Assets Uility",
+			"message": 		"Message: ",
+			"onLast": 		false,
+			"icon": 		"./notifier/info.png"
+		}		
 	},
 	"stop_on_error":	false,
 
