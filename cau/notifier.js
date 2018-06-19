@@ -26,11 +26,15 @@ var options = {
 };
 
 module.exports = {
-	success: function(){
-		return notify( options.success );
+	success: function(msg){
+		var opts = JSON.parse(JSON.stringify(options.success));
+		if(msg) opts.message = msg;
+		return notify( opts );
 	},
-	error: function(done,err){
-		return notify.onError( options.error , function(){			
+	error: function(done,msg){
+		var opts = JSON.parse(JSON.stringify(options.error));
+		if(msg) opts.message = msg;
+		return notify.onError( opts , function(){			
 			if(config.get('stop_on_error')) {
 				process.exit(-1);
 			}else{
@@ -39,9 +43,9 @@ module.exports = {
 			console.error(err);
 		});
 	},
-	message: function(done,msg){
+	message: function(msg){
 		var opts = JSON.parse(JSON.stringify(options.message));
-		opts.message = msg;
+		if(msg) opts.message = msg;
 		return notify( opts );
 	}
 }
