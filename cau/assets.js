@@ -3,22 +3,23 @@
 const gulp = require('gulp');
 const config = require('./config');
 const fileSync = require('gulp-file-sync');
+const path = require('path');
 
 module.exports = {
-	dev: function(done) {
+	dev: function(done) {		
 		return gulp.src([
-			config.get('source.path')+'/**/*.*',
-			'!'+config.get('source.scss.src')+'/**/*.*'
+			path.join( __dirname, config.get('source.path')) + '/**/*',
+			'!'+ path.join( __dirname, config.get('source.scss.src')) + '/**'
 		])
-		.pipe(gulp.dest(config.get('temp_path')+'/'))		
+		.pipe( gulp.dest( path.join(__dirname, config.get('temp_path')+'/')) );
 	},
 	dist: function(done){
 		return gulp.src([
-			config.get('source.path')+'/**/*.*',
-			'!'+config.get('source.scss.src')+'/**/*.*',
-			'!'+config.get('source.js.src')+'/**/*.*'
+			path.join( __dirname, config.get('source.path')) + '/**/*',			
+			'!'+ path.join( __dirname, config.get('source.scss.src')) + '/**',
+			'!'+ path.join( __dirname, config.get('source.js.src')) + '/**'
 		])
-		.pipe(gulp.dest(config.get('temp_path')+'/'))		
+		.pipe( gulp.dest( path.join(__dirname, config.get('temp_path') + '/')) );
 	}
 }
 

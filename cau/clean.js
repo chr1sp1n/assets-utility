@@ -6,16 +6,21 @@ const clean = require('gulp-clean');
 const pathExists = require('path-exists');
 const mkdirp = require('mkdirp');
 const notifier = require('./notifier');
+const path = require('path');
 
 module.exports = function(done) {
-	if(pathExists.sync(config.get('temp_path'))){
-		return gulp.src( config.get('temp_path') + '/**/*.*' , {read: false})
-			.pipe( clean() );
+	var tmp = path.join( __dirname, config.get('temp_path'));
+	if( pathExists.sync(tmp) ){
+		return gulp.src( 
+			tmp + '/**' , {read: false}
+		)
+		.pipe( clean() );		
 	}else{
-		mkdirp( config.get('temp_path'), function(err){
-			if(err) notifier.error(done, err);			
+		mkdirp( tmp, function(err){
+			if(err) gulp.join('.').pipe(notifier.error(done, err));
 		});
-	}	
+		done();
+	}
 }
 
 

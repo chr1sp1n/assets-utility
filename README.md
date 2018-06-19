@@ -1,14 +1,17 @@
 
-# Chr1Sp1n-dev Assets Utility
+# Chr1Sp1n-dev Assets Utility 
+##### Version 1.0.0
+
 
 ## Utility gulp 4 per la gestione semplificata degli assets front-end e non.
 ### Features:
 -	Tre modalità di esecuzione: sviluppo, distribuzione e watcher
--	L'organizzare e la standardizzazione dello scaffolding per qualsiasi tipo di progetto (wordpress, drupal, php, etc)
+-	L'organizzare e la standardizzazione dello scaffolding per qualsiasi tipo di progetto (wordpress, drupal, codeigniter, etc)
 -	Compilazione e ottimizzazione del codice SASS
 -	Compilazione e ottimizzazione del codice JavaScript
--	Deploy automatico nel progetto di destinazione
+-	Deploy e sincronizzazione automatica nel progetto di destinazione
 -	Dump automatico del databese utilizzato nel progetto
+-	Inizializzazione delle cartelle e dei file
 
 ---
 
@@ -19,13 +22,11 @@
 -	Installare le dipendenze con il comando:
 > `npm install`
 
--	Per customizzare le opzioni creare il file `config.json` appena fuori la directory `assets.utility`.
-```
-...
-assets-utility
-assets-config.json
-...
-```
+-	Inizializzazione degli assets:
+> `gulp init`
+
+Quest'ultimo comando inizializza il file di configurazione e le cartelle utilizzate dai task.
+Prima di eseguire i task editare il file di configurazione.
 
 ---
 
@@ -47,10 +48,15 @@ Esegue lo script in modalita watcher.<br>
 Questa modalità attiva il monitoraggio dei file presenti nelle cartella source configurata con l'opzione `source.path`. In caso di modifica di uno dei file viene avviato il task `gulp dev`.<br>
 Il monitoraggio può essere interrotto mediante la combinazione di tasti `ctrl+c`.
 
+Sono inoltre disponibili i seguenti task:
+
+> `gulp init`
+
+Inizializza il file di configurazione e le cartelle utilizzate dai task.
+
 > `gulp db:dump`
 
 Se configurata la sezione `db` nel file `config.json` effettua un dump del db specificato.
-
 
 > `gulp`
 
@@ -109,23 +115,23 @@ Le opzioni possono contenere il valore di altre opzioni con l'utilizzo di doppie
 
 Esempio:
 ```json
-"temp_path":  "./.tmp",
+"temp_path":  "../.tmp",
 "source":{		
-    "path":  "./source",
-        "scss":{
-            "src":  "{{source.path}}/scss",
-            "dest":  "{{temp_path}}/css"
-        }
+    "path":  "../source",
+	"scss":{
+		"src":  "{{source.path}}/scss",
+		"dest":  "{{temp_path}}/css"
+	}
 ```
 In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite concatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente:<br>
-`"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
+`"src":  "../source/scss"` e `"dest":  "../.tmp/css"`.
 
 Di seguito l'elenco completo delle opzioni:
 
--	`temp_path`: (./.tmp/) Percorso temporaneo in cui scrivere i file elaborati
--	`deploy_path_dev`: (./deploy/) Percorso di destinazione dei file elaborati in modalità sviluppo
--	`deploy_path_dist`: (./deploy/) Percorso di destinazione dei file elaborati in modalità distribuzione 
--	`source.path`: (./source/) Persorso base dei sorgenti 
+-	`temp_path`: (../.tmp/) Percorso temporaneo in cui scrivere i file elaborati
+-	`deploy_path_dev`: (../deploy/) Percorso di destinazione dei file elaborati in modalità sviluppo
+-	`deploy_path_dist`: (../deploy/) Percorso di destinazione dei file elaborati in modalità distribuzione 
+-	`source.path`: (../source/) Persorso base dei sorgenti 
 -	`source.scss.src`: ({{source.path}}/scss/) Persorso dei sorgenti SASS
 -	`source.scss.dest`: ({{temp_path}}/css/) Persorso di destinazione dei file SASS compilati
 -	`source.js.src`: ({{source.path}}/js/) Persorso dei sorgenti JavaScript
@@ -139,7 +145,7 @@ Configurazione necessaria per il task `db:dump`
 -	`db.user`:	Utente del database. *Esempio: nomedellutente*
 -	`db.password`: Password. Esempio: *lamiapassword*
 -	`db.dest`: Percorso in cui verranno salvati i dump. *Esempio: ./db-dump*
--	`site.type`: Tipologia del sito. *Esempio: wordpress"
+-	`site.type`: Tipologia del sito. *Esempio: wordpress*
 -	`site.hosts.dev`: URL del sito in modalità sviluppo. *Esempio: http://demo.ilmiosito.it*
 -	`site.hosts.dist`: URL del sito in modalità distribuzione. *Esempio: http://ilmiosito.it*
 

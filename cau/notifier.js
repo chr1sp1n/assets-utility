@@ -1,8 +1,8 @@
 'use strict';
 
-var config = require('./config');
-var notify = require('gulp-notify');
-var path = require('path');
+const config = require('./config');
+const notify = require('gulp-notify');
+const path = require('path');
 
 var options = {
 	success:{
@@ -16,15 +16,25 @@ var options = {
 		"message": config.get('notifier.error.message') + '<%= error.message %>',
 		"onLast": config.get('notifier.error.onLast'),
 		"icon": path.join(__dirname, config.get('notifier.error.icon'))		
-	}		
+	},
+	message:{
+		"title": config.get('notifier.message.title'),
+		"message": config.get('notifier.message.message'),
+		"onLast": config.get('notifier.message.onLast'),
+		"icon": path.join(__dirname, config.get('notifier.message.icon'))
+	}
 };
 
 module.exports = {
-	success: function(){
-		return notify( options.success );
+	success: function(msg){
+		var opts = JSON.parse(JSON.stringify(options.success));
+		if(msg) opts.message = msg;
+		return notify( opts );
 	},
-	error: function(done,err){
-		return notify.onError( options.error , function(){			
+	error: function(done,msg){
+		var opts = JSON.parse(JSON.stringify(options.error));
+		if(msg) opts.message = msg;
+		return notify.onError( opts , function(){			
 			if(config.get('stop_on_error')) {
 				process.exit(-1);
 			}else{
@@ -32,5 +42,10 @@ module.exports = {
 			}
 			console.error(err);
 		});
+	},
+	message: function(msg){
+		var opts = JSON.parse(JSON.stringify(options.message));
+		if(msg) opts.message = msg;
+		return notify( opts );
 	}
 }
