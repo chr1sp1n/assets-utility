@@ -30,8 +30,23 @@
 			"icon": 		"./notifier/virus.png"
 		}	
 	},
-	"stop_on_error":	false
+	"stop_on_error":	false,
 
+	"db":{
+		"host": "localhost",
+		"database": "mydatabase",
+		"user": "username",
+		"password": "password",
+		"dest": "../db-dump"
+	},
+	
+	"site":{
+		"type":"wordpress",
+		"hosts":{
+			"dev": "http://localhost/mysite",
+			"dist": "http://www.mysite.com"
+		}
+	}
 }
 
 
