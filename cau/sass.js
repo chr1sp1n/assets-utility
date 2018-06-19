@@ -13,7 +13,7 @@ const cssnano = require("cssnano");
 
 module.exports = {
 	dev: function(done) {
-		return gulp.src( config.get('source.scss.src') + "/**/*.scss" )
+		return gulp.src( path.join(__dirname, config.get('source.scss.src')) + "/**/*.scss" )
 			.pipe( sourcemaps.init() )
 			.pipe( 
 				sass()
@@ -27,12 +27,12 @@ module.exports = {
 			// )			
 			.pipe(sourcemaps.write())
 			.pipe( 
-				gulp.dest( config.get('source.scss.dest') ) 
+				gulp.dest( path.join(__dirname, config.get('source.scss.dest')) ) 
 					.on( "error", notifier.error(done) )
 			);
 	},
 	dist: function (done) {		
-		return gulp.src( config.get('source.scss.src') + "/**/*.scss" )
+		return gulp.src( path.join(__dirname, config.get('source.scss.src')) + "/**/*.scss" )
 			//.pipe( sourcemaps.init() )
 			.pipe( 
 				sass()
@@ -46,8 +46,8 @@ module.exports = {
 			)
 			//.pipe(sourcemaps.write())
 			.pipe(
-				gulp.dest( config.get('source.scss.dest') )
+				gulp.dest( path.join(__dirname, config.get('source.scss.dest')) )
 					.on( "error", notifier.error() )
-			);			
+			);
 	}
 }

@@ -1,5 +1,5 @@
 {
-	"temp_path":			"./.tmp",
+	"temp_path":			"../.tmp",
 	"deploy_path_dev":		"../theme-folder",
 	"deploy_path_dist":		"{{deploy_path_dev}}",
 

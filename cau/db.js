@@ -40,11 +40,12 @@ module.exports = {
 				if(site.type == 'wordpress'){
 					return gulp.src(db.dest + '/' + filename)
 						.pipe( replace(site.hosts.dev, site.hosts.dist) )
-						.pipe( gulp.dest( db.dest + "/dist" ) );
+						.pipe( gulp.dest( db.dest + "/dist" ) )
+						.pipe( notifier.success() );
 				}
 			})
 			.catch(function(err){
-				notifier.error(done, err);
+				gulp.src('.').pipe(notifier.error(done, 'Databese dump error!'));
 			});
 	}
 }
