@@ -44,6 +44,6 @@ module.exports = function(done) {
 			}
 		})
 		.catch(function(err){
-			gulp.src('.').pipe(notifier.error(done, 'Databese dump error!'));
+			console.log(err);			
 		});
 }
