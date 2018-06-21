@@ -5,6 +5,7 @@ const pathExists = require('path-exists');
 const rename = require('gulp-rename');
 const notifier = require('./notifier');
 const config = require('./config');
+const smacss = require('./smacss');
 const path = require('path');
 const mkdirp = require('mkdirp');
 
@@ -24,6 +25,20 @@ module.exports = function(done){
 		makeDir(done, path.join(__dirname, config.get('source.scss.dest')));
 		makeDir(done, path.join(__dirname, config.get('source.js.src')));
 		makeDir(done, path.join(__dirname, config.get('source.js.dest')));
+
+		if(config.get('source.scss.smacss')){
+			switch(config.get('site.type')){
+				case 'drupal':
+					smacss.drupal();
+					break;
+				case 'wordpress':
+					smacss.wordpress();
+					break;
+				default:
+					smacss.other();
+			}
+		}
+
 		return gulp.src('.').pipe( notifier.success() );
 	}
 	return gulp.src( path.join(__dirname,"/.default-config.json") )

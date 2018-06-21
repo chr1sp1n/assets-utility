@@ -47,14 +47,10 @@ gulp.task('dist',
 );
 
 gulp.task('watch', function(done){
-	var watcher = gulp.watch( cau.config.get('source.path') + '/**/*' , gulp.series('dev'));
+	var watcher = gulp.watch( cau.config.get('source.path') + '/**/*' , gulp.parallel('dev'));
 	watcher.on('error',function(err){
-		console.log(error);
+		console.log(err);
 	});	
 })
 
-gulp.task('default', 
-	gulp.series( 
-		'dev'
-	)
-);
+gulp.task('default', gulp.series( 'dev' ) );
