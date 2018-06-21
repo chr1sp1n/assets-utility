@@ -149,4 +149,3 @@ Opzioni relative al task `db:dump`
 -	`site.type`: Tipologia del sito. *Esempio: wordpress*
 -	`site.hosts.dev`: URL del sito in modalità sviluppo. *Esempio: http://demo.ilmiosito.it*
 -	`site.hosts.dist`: URL del sito in modalità distribuzione. *Esempio: http://ilmiosito.it*
-
