@@ -46,4 +46,5 @@ gulp.task('dist',
 
 gulp.task('init', cau.init);
 gulp.task('watch', cau.watch);
+gulp.task('db:dump', cau.db);
 gulp.task('default', gulp.series('dev'));
