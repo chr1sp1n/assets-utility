@@ -1,17 +1,23 @@
 'use strict';
 
-const gulp = require('gulp');
-const requireDir = require('require-dir');
-const cau = requireDir('./');
-
-gulp.task('clean', cau.clean);
-gulp.task('sass:dev', cau.sass.dev);
-gulp.task('deploy:dev', cau.deploy.dev);
-gulp.task('assets:dev', cau.assets.dev);
-gulp.task('js:dev', cau.js.dev);
-gulp.task('success', cau.success);
-
 module.exports = function(){
+
+	const gulp = require('gulp');
+
+	const clean = require('./clean');
+	const sass = require('./sass');
+	const js = require('./js');
+	const assets = require('./assets');
+	const deploy = require('./deploy');	
+	const success = require('./success');
+	
+	gulp.task('clean', clean);
+	gulp.task('sass:dev', sass.dev);
+	gulp.task('deploy:dev', deploy.dev);
+	gulp.task('assets:dev', assets.dev);
+	gulp.task('js:dev', js.dev);
+	gulp.task('success', success);
+
 	return gulp.series(
 		'clean',
 		gulp.parallel(

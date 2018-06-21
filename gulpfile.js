@@ -1,14 +1,17 @@
 'use strict';
 
 const gulp = require('gulp');
-//const instructions = require('./cau/instructions.txt');
-var requireDir = require('require-dir');
-var cau = requireDir('./cau');
+const dev = require('./cau/dev');
+const dist = require('./cau/dist');
+const watch = require('./cau/watch');
+const init = require('./cau/init');
+const db = require('./cau/db');
 
-gulp.task('dev', cau.dev);
-gulp.task('dist', cau.dist);
-gulp.task('watch', cau.watch);
-gulp.task('init', cau.init);
+gulp.task('init', init);
+gulp.task('dev', dev);
+gulp.task('dist', dist);
+gulp.task('watch', watch);
+gulp.task('db', db);
 
 gulp.task('default', function(done){
 	//console.log(instructions);
