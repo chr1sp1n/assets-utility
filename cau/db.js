@@ -30,22 +30,20 @@ const dump = function(config){
 	);
 }
 
-module.exports = {
-	dump: function(done) {
-		var db = config.get('db');
-		var site = config.get('site');
-		if(typeof(db) == 'undefined' || typeof(site) == 'undefined') done();
-		return dump(db)
-			.then(function(filename){
-				if(site.type == 'wordpress'){
-					return gulp.src(db.dest + '/' + filename)
-						.pipe( replace(site.hosts.dev, site.hosts.dist) )
-						.pipe( gulp.dest( db.dest + "/dist" ) )
-						.pipe( notifier.success() );
-				}
-			})
-			.catch(function(err){
-				gulp.src('.').pipe(notifier.error(done, 'Databese dump error!'));
-			});
-	}
+module.exports = function(done) {
+	var db = config.get('db');
+	var site = config.get('site');
+	if(typeof(db) == 'undefined' || typeof(site) == 'undefined') done();
+	return dump(db)
+		.then(function(filename){
+			if(site.type == 'wordpress'){
+				return gulp.src(db.dest + '/' + filename)
+					.pipe( replace(site.hosts.dev, site.hosts.dist) )
+					.pipe( gulp.dest( db.dest + "/dist" ) )
+					.pipe( notifier.success() );
+			}
+		})
+		.catch(function(err){
+			console.log(err);			
+		});
 }

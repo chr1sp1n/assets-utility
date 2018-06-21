@@ -134,11 +134,12 @@ Di seguito l'elenco completo delle opzioni:
 -	`source.path`: (../source/) Persorso base dei sorgenti 
 -	`source.scss.src`: ({{source.path}}/scss/) Persorso dei sorgenti SASS
 -	`source.scss.dest`: ({{temp_path}}/css/) Persorso di destinazione dei file SASS compilati
+-	`source.scss.smacss`: (true) Se true in fase di inizializzazione viene creato lo scaffolding SAMCSS
 -	`source.js.src`: ({{source.path}}/js/) Persorso dei sorgenti JavaScript
 -	`source.js.dest`: ({{temp_path}}/js/) Percorso di destinazione dei file JavaScript elaborati
 -	`source.js.cocat_to`: (scripts.js) Nome del file risultante della concatenazione dei files JavaScript
 
-Configurazione necessaria per il task `db:dump`
+Opzioni relative al task `db:dump`
 
 -	`db.host`: Nome host del databese. *Esempio: localhost*
 -	`db.database`: Nome del database. *Esempio: nomedeldatabase*
@@ -148,4 +149,3 @@ Configurazione necessaria per il task `db:dump`
 -	`site.type`: Tipologia del sito. *Esempio: wordpress*
 -	`site.hosts.dev`: URL del sito in modalità sviluppo. *Esempio: http://demo.ilmiosito.it*
 -	`site.hosts.dist`: URL del sito in modalità distribuzione. *Esempio: http://ilmiosito.it*
-

@@ -17,6 +17,7 @@
     "autoprefixer": "^8.6.0",
     "cssnano": "^3.10.0",
     "dateformat": "^3.0.3",
+    "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",

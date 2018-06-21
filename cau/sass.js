@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const config = require('./config');
 const notifier = require('./notifier');
 
-
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
@@ -14,7 +13,8 @@ const path = require('path');
 
 module.exports = {
 	dev: function(done) {
-		return gulp.src( path.join(__dirname, config.get('source.scss.src')) + "/**/*.scss" )
+		var find = (config.get('site.type')=='drupal')? "/**/*.scss" : "/*.scss";
+		return gulp.src( path.join(__dirname, config.get('source.scss.src')) + find )
 			.pipe( sourcemaps.init() )
 			.pipe( 
 				sass()
@@ -33,7 +33,8 @@ module.exports = {
 			);
 	},
 	dist: function (done) {		
-		return gulp.src( path.join(__dirname, config.get('source.scss.src')) + "/**/*.scss" )
+		var find = (config.get('site.type')=='drupal')? "/**/*.scss" : "/*.scss";
+		return gulp.src( path.join(__dirname, config.get('source.scss.src')) + find )
 			//.pipe( sourcemaps.init() )
 			.pipe( 
 				sass()

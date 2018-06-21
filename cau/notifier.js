@@ -34,7 +34,7 @@ module.exports = {
 	error: function(done,msg){
 		var opts = JSON.parse(JSON.stringify(options.error));
 		if(msg) opts.message = msg;
-		return notify.onError( opts , function(){			
+		return notify.onError( opts , function(err){			
 			if(config.get('stop_on_error')) {
 				process.exit(-1);
 			}else{
