@@ -6,9 +6,10 @@
 ## Utility gulp 4 per la gestione semplificata degli assets front-end e non.
 ### Features:
 -	Tre modalità di esecuzione: sviluppo, distribuzione e watcher
--	L'organizzare e la standardizzazione dello scaffolding per qualsiasi tipo di progetto (wordpress, drupal, codeigniter, etc)
+-	Organizzazione e standardizzazione dello scaffolding per qualsiasi tipo di progetto (wordpress, drupal, codeigniter, etc)
+-	Scaffolding dei sorgenti SASS organizzati secondo lo standard [SMACSS](https://smacss.com/book/categorizing)
 -	Compilazione e ottimizzazione del codice SASS
--	Compilazione e ottimizzazione del codice JavaScript
+-	Compilazione, ottimizzazione e offuscamento del codice JavaScript
 -	Deploy e sincronizzazione automatica nel progetto di destinazione
 -	Dump automatico del databese utilizzato nel progetto
 -	Inizializzazione delle cartelle e dei file
