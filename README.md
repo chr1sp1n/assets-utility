@@ -7,7 +7,7 @@
 ### Features:
 -	Tre modalità di esecuzione: sviluppo, distribuzione e watcher
 -	Organizzazione e standardizzazione dello scaffolding per qualsiasi tipo di progetto (wordpress, drupal, codeigniter, etc)
--	Scaffolding dei sorgenti [SASS](https://sass-lang.com/) organizzati secondo lo standard [SMACSS](https://smacss.com/book/categorizing)
+-	Scaffolding dei sorgenti [SASS](https://sass-lang.com/) secondo lo standard [SMACSS](https://smacss.com/book/categorizing)
 -	Compilazione e ottimizzazione del codice [SASS](https://sass-lang.com/)
 -	Compilazione, ottimizzazione e offuscamento del codice JavaScript
 -	Deploy e sincronizzazione automatica nel progetto di destinazione
@@ -113,7 +113,7 @@ In caso di errore viene visualizzato nell'area di notifica un pop-up riportante 
 Lo script consente la personalizzazione di tutte le opzioni che sono comunque inizializzate con valori di default.<br>
 La personalizzazione è possibile nel file `config.json` genrato dal task `gulp init` e scritto nella root del progetto.<br>
 Le opzioni possono contenere il valore di altre opzioni con l'utilizzo di doppie parentesi graffe.
-Tutti i percorsi sono relativi alla directory contenente assets-utility.
+Tutti i percorsi sono relativi alla directory contenente assets-utility. Non è possibile definire percorsi assoluti.
 
 Esempio:
 ```json
@@ -147,7 +147,7 @@ Opzioni relative al task `db:dump`
 -	`db.database`: Nome del database. *Esempio: nomedeldatabase*
 -	`db.user`:	Utente del database. *Esempio: nomedellutente*
 -	`db.password`: Password. Esempio: *lamiapassword*
--	`db.dest`: (./db-dump) Percorso in cui verranno salvati i dump. *Esempio: ./db-dump*
+-	`db.dest`: (./db-dump) Percorso in cui verranno salvati i dump.
 -	`site.type`: (pure-html) Tipologia del sito [drupal, wordpress, pure-html].
 -	`site.hosts.dev`: URL del sito in modalità sviluppo. *Esempio: http://demo.ilmiosito.it*
 -	`site.hosts.dist`: URL del sito in modalità distribuzione. *Esempio: http://ilmiosito.it*
