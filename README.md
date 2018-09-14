@@ -1,5 +1,5 @@
 
-# Chr1Sp1n-dev Assets Utility 
+# Chr1Sp1n-dev Assets Utility
 ##### Version 1.0.0
 
 
@@ -84,7 +84,7 @@ I task sopra elencati vengono eseguiti parallelamente al fine di ottimizzare il 
 &nbsp;Task 4 - `gulp assets:dev` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
 
 **Task 5** - `deploy:dev` sincronizza il contenuto delle cartella temporanea con il contenuto della cartella di destinazione definita con l'opzione `deploy_path_dev`.
- 
+
 <br>
 In modalità distribuzione (`gulp dist`) lo script provvede all'esecuzione dei seguenti task:
 
@@ -111,13 +111,13 @@ In caso di errore viene visualizzato nell'area di notifica un pop-up riportante 
 ### **Configurazione:**
 
 Lo script consente la personalizzazione di tutte le opzioni che sono comunque inizializzate con valori di default.<br>
-La personalizzazione è possibile nel file `config.json` presente nella root del progetto.<br>
+La personalizzazione è possibile nel file `config.json` genrato dal task `gulp init` e scritto nella root del progetto.<br>
 Le opzioni possono contenere il valore di altre opzioni con l'utilizzo di doppie parentesi graffe.
 
 Esempio:
 ```json
 "temp_path":  "../.tmp",
-"source":{		
+"source":{
     "path":  "../source",
 	"scss":{
 		"src":  "{{source.path}}/scss",
@@ -131,8 +131,8 @@ Di seguito l'elenco completo delle opzioni:
 
 -	`temp_path`: (../.tmp/) Percorso temporaneo in cui scrivere i file elaborati
 -	`deploy_path_dev`: (../deploy/) Percorso di destinazione dei file elaborati in modalità sviluppo
--	`deploy_path_dist`: (../deploy/) Percorso di destinazione dei file elaborati in modalità distribuzione 
--	`source.path`: (../source/) Persorso base dei sorgenti 
+-	`deploy_path_dist`: (../deploy/) Percorso di destinazione dei file elaborati in modalità distribuzione
+-	`source.path`: (../source/) Persorso base dei sorgenti
 -	`source.scss.src`: ({{source.path}}/scss/) Persorso dei sorgenti SASS
 -	`source.scss.dest`: ({{temp_path}}/css/) Persorso di destinazione dei file SASS compilati
 -	`source.scss.smacss`: (true) Se true in fase di inizializzazione viene creato lo scaffolding SAMCSS
