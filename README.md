@@ -113,26 +113,27 @@ In caso di errore viene visualizzato nell'area di notifica un pop-up riportante 
 Lo script consente la personalizzazione di tutte le opzioni che sono comunque inizializzate con valori di default.<br>
 La personalizzazione è possibile nel file `config.json` genrato dal task `gulp init` e scritto nella root del progetto.<br>
 Le opzioni possono contenere il valore di altre opzioni con l'utilizzo di doppie parentesi graffe.
+Tutti i percorsi sono relativi alla directory contenente assets-utility.
 
 Esempio:
 ```json
-"temp_path":  "../.tmp",
+"temp_path":  "./.tmp",
 "source":{
-    "path":  "../source",
+    "path":  "./source",
 	"scss":{
 		"src":  "{{source.path}}/scss",
 		"dest":  "{{temp_path}}/css"
 	}
 ```
 In questo esempio le opzioni `source.scss.src` e `source.scss.dest` vengono definite concatenando le opzioni `source.path` e `temp_path` ottenendo rispettivamente:<br>
-`"src":  "../source/scss"` e `"dest":  "../.tmp/css"`.
+`"src":  "./source/scss"` e `"dest":  "./.tmp/css"`.
 
 Di seguito l'elenco completo delle opzioni:
 
--	`temp_path`: (../.tmp/) Percorso temporaneo in cui scrivere i file elaborati
--	`deploy_path_dev`: (../deploy/) Percorso di destinazione dei file elaborati in modalità sviluppo
--	`deploy_path_dist`: (../deploy/) Percorso di destinazione dei file elaborati in modalità distribuzione
--	`source.path`: (../source/) Persorso base dei sorgenti
+-	`temp_path`: (./.tmp/) Percorso temporaneo in cui scrivere i file elaborati
+-	`deploy_path_dev`: (./deploy/) Percorso di destinazione dei file elaborati in modalità sviluppo
+-	`deploy_path_dist`: (./deploy/) Percorso di destinazione dei file elaborati in modalità distribuzione
+-	`source.path`: (./source/) Persorso base dei sorgenti
 -	`source.scss.src`: ({{source.path}}/scss/) Persorso dei sorgenti SASS
 -	`source.scss.dest`: ({{temp_path}}/css/) Persorso di destinazione dei file SASS compilati
 -	`source.scss.smacss`: (true) Se true in fase di inizializzazione viene creato lo scaffolding SAMCSS
@@ -146,7 +147,7 @@ Opzioni relative al task `db:dump`
 -	`db.database`: Nome del database. *Esempio: nomedeldatabase*
 -	`db.user`:	Utente del database. *Esempio: nomedellutente*
 -	`db.password`: Password. Esempio: *lamiapassword*
--	`db.dest`: Percorso in cui verranno salvati i dump. *Esempio: ./db-dump*
--	`site.type`: Tipologia del sito. *Esempio: wordpress*
+-	`db.dest`: (./db-dump) Percorso in cui verranno salvati i dump. *Esempio: ./db-dump*
+-	`site.type`: (pure-html) Tipologia del sito [drupal, wordpress, pure-html].
 -	`site.hosts.dev`: URL del sito in modalità sviluppo. *Esempio: http://demo.ilmiosito.it*
 -	`site.hosts.dist`: URL del sito in modalità distribuzione. *Esempio: http://ilmiosito.it*

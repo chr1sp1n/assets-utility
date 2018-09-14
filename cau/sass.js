@@ -14,33 +14,33 @@ const path = require('path');
 module.exports = {
 	dev: function(done) {
 		var find = (config.get('site.type')=='drupal')? "/**/*.scss" : "/*.scss";
-		return gulp.src( path.join(__dirname, config.get('source.scss.src')) + find )
+		return gulp.src( path.join(__dirname, '../../', config.get('source.scss.src')) + find )
 			.pipe( sourcemaps.init() )
-			.pipe( 
+			.pipe(
 				sass()
-					.on( "error", notifier.error(done) ) 
+					.on( "error", notifier.error(done) )
 			)
-			// .pipe( 
+			// .pipe(
 			// 	postcss([
 			// 		autoprefixer(),
 			// 		cssnano()
 			// 	])
-			// )			
+			// )
 			.pipe(sourcemaps.write())
-			.pipe( 
-				gulp.dest( path.join(__dirname, config.get('source.scss.dest')) ) 
+			.pipe(
+				gulp.dest( path.join(__dirname, '../../', config.get('source.scss.dest')) )
 					.on( "error", notifier.error(done) )
 			);
 	},
-	dist: function (done) {		
+	dist: function (done) {
 		var find = (config.get('site.type')=='drupal')? "/**/*.scss" : "/*.scss";
-		return gulp.src( path.join(__dirname, config.get('source.scss.src')) + find )
+		return gulp.src( path.join(__dirname, '../../', config.get('source.scss.src')) + find )
 			//.pipe( sourcemaps.init() )
-			.pipe( 
+			.pipe(
 				sass()
-					.on( "error", notifier.error() ) 
+					.on( "error", notifier.error() )
 			)
-			.pipe( 
+			.pipe(
 				postcss([
 					autoprefixer(),
 					cssnano()
@@ -48,7 +48,7 @@ module.exports = {
 			)
 			//.pipe(sourcemaps.write())
 			.pipe(
-				gulp.dest( path.join(__dirname, config.get('source.scss.dest')) )
+				gulp.dest( path.join(__dirname, '../../', config.get('source.scss.dest')) )
 					.on( "error", notifier.error() )
 			);
 	}

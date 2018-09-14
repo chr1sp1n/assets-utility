@@ -1,10 +1,10 @@
 {
-	"temp_path":			"../.tmp",
-	"deploy_path_dev":		"../deploy",
+	"temp_path":			"./.tmp",
+	"deploy_path_dev":		"./deploy",
 	"deploy_path_dist":		"{{deploy_path_dev}}",
 
 	"source":{
-		"path":				"../source",
+		"path":				"./source",
 		"scss":{
 			"src":			"{{source.path}}/scss",
 			"dest":			"{{temp_path}}/css",
@@ -14,7 +14,7 @@
 			"src":			"{{source.path}}/js",
 			"dest":			"{{temp_path}}/js",
 			"cocat_to":		"scripts.js"
-		}	
+		}
 	},
 
 	"notifier":{
@@ -22,20 +22,20 @@
 			"title":		"Chr1Sp1n-Dev Assets Uility",
 			"message": 		"Task execution complete",
 			"onLast": 		true,
-			"icon": 		"./notifier/checked.png"
+			"icon": 		"./assets-utility/cau/notifier/checked.png"
 		},
 		"error":{
 			"title":		"Chr1Sp1n-Dev Assets Uility",
 			"message": 		"Error: ",
 			"onLast": 		false,
-			"icon": 		"./notifier/virus.png"
+			"icon": 		"./assets-utility/cau/notifier/virus.png"
 		},
 		"message":{
 			"title":		"Chr1Sp1n-Dev Assets Uility",
 			"message": 		"Message: ",
 			"onLast": 		false,
-			"icon": 		"./notifier/info.png"
-		}		
+			"icon": 		"./assets-utility/cau/notifier/info.png"
+		}
 	},
 	"stop_on_error":	false,
 
@@ -44,11 +44,11 @@
 		"database": "mydatabase",
 		"user": "username",
 		"password": "password",
-		"dest": "../db-dump"
+		"dest": "./db-dump"
 	},
-	
+
 	"site":{
-		"type":"wordpress",
+		"type":"pure-html",
 		"hosts":{
 			"dev": "http://localhost/mysite",
 			"dist": "http://www.mysite.com"

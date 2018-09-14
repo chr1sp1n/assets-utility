@@ -9,7 +9,7 @@ const path = require('path');
 var del = require('del');
 
 module.exports = function(done) {
-	var tmp = path.join( __dirname, config.get('temp_path'));
+	var tmp = path.join( __dirname, '../../', config.get('temp_path'));
 	if( pathExists.sync(tmp) ){
 		return del( tmp + '/**' );
 	}else{

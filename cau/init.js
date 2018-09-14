@@ -19,12 +19,12 @@ const makeDir = function(done, dir){
 
 module.exports = function(done){
 	if( pathExists.sync( path.join(__dirname, "../../assets-config.json") ) ){
-		makeDir(done, path.join(__dirname, config.get('deploy_path_dev')));
-		makeDir(done, path.join(__dirname, config.get('source.path')));
-		makeDir(done, path.join(__dirname, config.get('source.scss.src')));
-		makeDir(done, path.join(__dirname, config.get('source.scss.dest')));
-		makeDir(done, path.join(__dirname, config.get('source.js.src')));
-		makeDir(done, path.join(__dirname, config.get('source.js.dest')));
+		makeDir(done, path.join(__dirname, '../../', config.get('deploy_path_dev')));
+		makeDir(done, path.join(__dirname, '../../', config.get('source.path')));
+		makeDir(done, path.join(__dirname, '../../', config.get('source.scss.src')));
+		makeDir(done, path.join(__dirname, '../../', config.get('source.scss.dest')));
+		makeDir(done, path.join(__dirname, '../../', config.get('source.js.src')));
+		makeDir(done, path.join(__dirname, '../../', config.get('source.js.dest')));
 
 		if(config.get('source.scss.smacss')){
 			switch(config.get('site.type')){
@@ -41,8 +41,8 @@ module.exports = function(done){
 
 		return gulp.src('.').pipe( notifier.success() );
 	}
-	return gulp.src( path.join(__dirname,"/.default-config.json") )
+	return gulp.src( path.join(__dirname, '/.default-config.json') )
 		.pipe(rename('assets-config.json'))
-		.pipe(gulp.dest( path.join(__dirname, "/../../") ).on("error", notifier.error(done)))
-		.pipe(notifier.message("Please edit file assets-config.json in '" + path.join(__dirname, "/../../") + "' and restart init script."));	
+		.pipe(gulp.dest( path.join(__dirname, '/../../') ).on("error", notifier.error(done)))
+		.pipe(notifier.message("Please edit file assets-config.json in '" + path.join(__dirname, '/../../') + "' and restart init script."));
 }
