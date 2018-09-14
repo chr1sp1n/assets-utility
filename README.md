@@ -8,7 +8,7 @@
 -	Tre modalità di esecuzione: sviluppo, distribuzione e watcher
 -	Organizzazione e standardizzazione dello scaffolding per qualsiasi tipo di progetto (wordpress, drupal, codeigniter, etc)
 -	Scaffolding dei sorgenti [SASS](https://sass-lang.com/) organizzati secondo lo standard [SMACSS](https://smacss.com/book/categorizing)
--	Compilazione e ottimizzazione del codice SASS
+-	Compilazione e ottimizzazione del codice [SASS](https://sass-lang.com/)
 -	Compilazione, ottimizzazione e offuscamento del codice JavaScript
 -	Deploy e sincronizzazione automatica nel progetto di destinazione
 -	Dump automatico del databese utilizzato nel progetto
