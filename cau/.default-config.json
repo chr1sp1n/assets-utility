@@ -12,8 +12,10 @@
 		},
 		"js":{
 			"src":			"{{source.path}}/js",
-			"dest":			"{{temp_path}}/js",
-			"cocat_to":		"scripts.js"
+			"files":		[],
+			"inject_to":	[ "*.html", "*.php" ],
+			"cocat_to":		"scripts.js",
+			"dest":			"{{temp_path}}/js"
 		}
 	},
 

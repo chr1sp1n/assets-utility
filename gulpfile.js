@@ -8,6 +8,7 @@ const cau = requireDir('./cau');
 gulp.task('clean', cau.clean);
 gulp.task('sass:dev', cau.sass.dev);
 gulp.task('js:dev', cau.js.dev);
+gulp.task('js:inject:dev', cau.inject.js.dev);
 gulp.task('assets:dev', cau.assets.dev);
 gulp.task('deploy:dev', cau.deploy.dev);
 gulp.task('success', cau.success);
@@ -17,6 +18,7 @@ gulp.task('dev',
 		gulp.parallel(
 			'sass:dev',
 			'js:dev',
+			'js:inject:dev',
 			'assets:dev'
 		),
 		'deploy:dev',
