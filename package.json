@@ -2,7 +2,7 @@
   "name": "chr1sp1n-dev-assets-utility",
   "version": "1.0.0",
   "description": "Chr1Sp1n-dev assets utility",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +24,7 @@
     "gulp-file-sync": "^2.0.0",
     "gulp-inject": "^4.3.2",
     "gulp-javascript-obfuscator": "^1.1.4",
+    "gulp-logger": "0.0.2",
     "gulp-notify": "^3.2.0",
     "gulp-path": "^4.0.0",
     "gulp-postcss": "^7.0.1",

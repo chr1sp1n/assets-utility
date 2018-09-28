@@ -4,6 +4,17 @@ const gulp = require('gulp');
 const requireDir = require('require-dir');
 const cau = requireDir('./cau');
 
+const pathExists = require('path-exists');
+const path = require('path');
+
+var basePath = '../';
+cau.config.basePath = basePath + '../';
+
+var assetsConfigPath = path.join( __dirname, basePath, 'assets-config.json');
+if(pathExists.sync( assetsConfigPath )){
+	console.log('Using config file: ' + assetsConfigPath);
+}
+
 // dev
 gulp.task('clean', cau.clean);
 gulp.task('sass:dev', cau.sass.dev);
@@ -49,4 +60,5 @@ gulp.task('dist',
 gulp.task('init', cau.init);
 gulp.task('watch', cau.watch);
 gulp.task('db:dump', cau.db);
+
 gulp.task('default', gulp.series('dev'));

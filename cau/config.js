@@ -4,10 +4,12 @@ const pathExists = require('path-exists');
 const path = require('path');
 
 module.exports = {
+	basePath: '../../',
 	read: function(){
 		var defaultConfig = require("./.default-config.json");
-		if(pathExists.sync( __dirname + "/../../assets-config.json" )){
-			var config = require("../../assets-config.json");
+		var assetsConfigPath = path.join( __dirname, this.basePath, 'assets-config.json');
+		if(pathExists.sync( assetsConfigPath )){
+			var config = require( assetsConfigPath );
 			Object.keys(config).forEach(function(c){
 				if(defaultConfig[c]){
 					if(typeof(config[c]) == 'object'){
@@ -47,24 +49,5 @@ module.exports = {
 			}
 		}
 		return data;
-	},
-	getList: function(item){
-		var list = this.get( item );
-		// var notFound = true;
-		// var self = this;
-		// if(typeof list == 'object'){
-		// 	list.forEach(function(f, i){
-		// 		var file = self.get(item +'['+ i +']');
-		// 		// if(!pathExists.sync(file)){
-		// 		// 	file = path.join( __dirname, '../../',  self.get(item +'['+ i +']') );
-		// 		// 	if(!pathExists.sync(file)) file = false;
-		// 		// }
-		// 		if(file) {
-		// 			list[i] = path.join( __dirname, '../../',  self.get(item +'['+ i +']') );
-		// 			notFound = false;
-		// 		}
-		// 	});
-		// }
-		return (typeof list == 'object') ? list : undefined;
 	}
 }

@@ -9,32 +9,32 @@ module.exports = {
 	dev: function(done) {
 
 		var src = [];
-		src.push( path.join( __dirname, '../../', config.get('source.path')) + '/**/*' );
-		src.push( '!'+ path.join( __dirname, '../../', config.get('source.scss.src')) + '/**' );
-		src.push( '!'+ path.join( __dirname, '../../', config.get('source.js.src')) + '/**' );
+		src.push( path.join( __dirname, config.basePath, config.get('source.path')) + '/**/*' );
+		src.push( '!'+ path.join( __dirname, config.basePath, config.get('source.scss.src')) + '/**' );
+		src.push( '!'+ path.join( __dirname, config.basePath, config.get('source.js.src')) + '/**' );
 
-		var exceptions = config.getList('source.js.inject_to');
+		var exceptions = config.get('source.js.inject_to');
 		if(exceptions){
 			exceptions.forEach( function(e) {
-				src.push( '!' + path.join( __dirname, '../../', config.get('source.path')) + '/' + e );
+				src.push( '!' + path.join( __dirname, config.basePath, config.get('source.path')) + '/' + e );
 			});
 		}
 
 		return gulp.src( src )
-			.pipe( gulp.dest( path.join(__dirname, '../../', config.get('temp_path') + '/' )) );
+			.pipe( gulp.dest( path.join(__dirname, config.basePath, config.get('temp_path') + '/' )) );
 
 	},
 
 	dist: function(done){
 
 		var src = [];
-		src.push( path.join( __dirname, '../../', config.get('source.path')) + '/**/*' );
-		src.push( '!'+ path.join( __dirname, '../../', config.get('source.path')) + '/*.html' );
-		src.push( '!'+ path.join( __dirname, '../../', config.get('source.scss.src')) + '/**' );
-		src.push( '!'+ path.join( __dirname, '../../', config.get('source.js.src')) + '/**' );
+		src.push( path.join( __dirname, config.basePath, config.get('source.path')) + '/**/*' );
+		src.push( '!'+ path.join( __dirname, config.basePath, config.get('source.path')) + '/*.html' );
+		src.push( '!'+ path.join( __dirname, config.basePath, config.get('source.scss.src')) + '/**' );
+		src.push( '!'+ path.join( __dirname, config.basePath, config.get('source.js.src')) + '/**' );
 
 		return gulp.src( src )
-			.pipe( gulp.dest( path.join(__dirname, '../../', config.get('temp_path') + '/')) );
+			.pipe( gulp.dest( path.join(__dirname, config.basePath, config.get('temp_path') + '/')) );
 	}
 
 }

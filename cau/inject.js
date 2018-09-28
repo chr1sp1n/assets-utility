@@ -15,7 +15,7 @@ module.exports = {
 			var targets = [];
 			if(exceptions){
 				exceptions.forEach( function(e) {
-					targets.push( path.join( __dirname, '../../', config.get('source.path')) + '/' + e );
+					targets.push( path.join( __dirname, config.basePath, config.get('source.path')) + '/' + e );
 				});
 			}
 			var target = gulp.src( targets );
@@ -24,18 +24,18 @@ module.exports = {
 			var files = [];
 			filesRaw.forEach( function(f, i) {
 				if(!pathExists.sync(f)){
-					f = path.join( __dirname, '../../',  config.get('source.js.files['+ i +']') );
+					f = path.join( __dirname, config.basePath,  config.get('source.js.files['+ i +']') );
 					if(!pathExists.sync(f)) f = false;
 				}
 				if(f) {
-					files.push( path.join( __dirname, '../../',  config.get('source.js.files['+ i +']') ) );
+					files.push( path.join( __dirname, config.basePath,  config.get('source.js.files['+ i +']') ) );
 				}
 			});
 
 			if(files.length > 0){
 				var sources = gulp.src( files );
 				return target.pipe( inject(sources) )
-					.pipe( gulp.dest( path.join(__dirname, '../../', config.get('temp_path') + '/' )) );
+					.pipe( gulp.dest( path.join(__dirname, config.basePath, config.get('temp_path') + '/' )) );
 			}
 			done();
 		},

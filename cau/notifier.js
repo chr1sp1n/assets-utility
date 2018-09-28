@@ -9,19 +9,19 @@ var options = {
 		"title": config.get('notifier.success.title'),
 		"message": config.get('notifier.success.message'),
 		"onLast": config.get('notifier.success.onLast'),
-		"icon": path.join(__dirname, '../../', config.get('notifier.success.icon'))
+		"icon": path.join(__dirname, config.basePath, config.get('notifier.success.icon'))
 	},
 	error:{
 		"title": config.get('notifier.error.title'),
 		"message": config.get('notifier.error.message') + '<%= error.message %>',
 		"onLast": config.get('notifier.error.onLast'),
-		"icon": path.join(__dirname, '../../', config.get('notifier.error.icon'))
+		"icon": path.join(__dirname, config.basePath, config.get('notifier.error.icon'))
 	},
 	message:{
 		"title": config.get('notifier.message.title'),
 		"message": config.get('notifier.message.message'),
 		"onLast": config.get('notifier.message.onLast'),
-		"icon": path.join(__dirname, '../../', config.get('notifier.message.icon'))
+		"icon": path.join(__dirname, config.basePath, config.get('notifier.message.icon'))
 	}
 };
 
