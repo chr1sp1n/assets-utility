@@ -12,8 +12,7 @@
   },
   "author": "chr1sp1n-dev",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "^8.6.5",
     "cssnano": "^3.10.0",
     "dateformat": "^3.0.3",
@@ -24,7 +23,6 @@
     "gulp-file-sync": "^2.0.0",
     "gulp-inject": "^4.3.2",
     "gulp-javascript-obfuscator": "^1.1.4",
-    "gulp-logger": "0.0.2",
     "gulp-notify": "^3.2.0",
     "gulp-path": "^4.0.0",
     "gulp-postcss": "^7.0.1",
@@ -37,5 +35,6 @@
     "mysqldump": "^2.2.1",
     "path-exists": "^3.0.0",
     "require-dir": "^1.0.0"
-  }
+  },
+  "devDependencies": {}
 }
