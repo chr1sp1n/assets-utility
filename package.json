@@ -1,6 +1,6 @@
 {
   "name": "chr1sp1n-dev-assets-utility",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Chr1Sp1n-dev assets utility",
   "main": "gulpfile.js",
   "scripts": {
