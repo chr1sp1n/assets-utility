@@ -62,3 +62,21 @@ gulp.task('watch', cau.watch);
 gulp.task('db:dump', cau.db);
 
 gulp.task('default', gulp.series('dev'));
+
+
+module.exports = function(){
+
+	var args = process.argv.slice(2);
+	if(args.length > 0){
+		if(gulp.task(args[0])){
+			gulp.series('success')( err => {
+				if(err) console.error(err);
+			});
+		}else{
+			console.error('Error: Task ' + args[0] + ' not found.');
+		}
+	}else{
+		console.log('Assets Utility v1.1.1');
+	}
+
+}

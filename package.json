@@ -2,9 +2,9 @@
 	"name": "chr1sp1n-dev-assets-utility",
 	"version": "1.1.1",
 	"description": "Chr1Sp1n-dev assets utility",
-	"main": "gulpfile.js",
+	"main": "index.js",
 	"scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
 		"type": "git",
@@ -12,8 +12,11 @@
 	},
 	"author": "chr1sp1n-dev",
 	"license": "ISC",
-	"bin" : {
-		"assets-utility" : "../.bin/gulp"
+	"bin": {
+		"assets-utility": "./index.js"
+	},
+	"engines": {
+		"node": ">= 0.10"
 	},
 	"dependencies": {
 		"autoprefixer": "^8.6.5",
