@@ -1,40 +1,42 @@
 {
-  "name": "chr1sp1n-dev-assets-utility",
-  "version": "1.1.1",
-  "description": "Chr1Sp1n-dev assets utility",
-  "main": "gulpfile.js",
-  "scripts": {
+	"name": "chr1sp1n-dev-assets-utility",
+	"version": "1.1.1",
+	"description": "Chr1Sp1n-dev assets utility",
+	"main": "gulpfile.js",
+	"scripts": {
 	"test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chr1sp1n/assets-utility.git"
-  },
-  "author": "chr1sp1n-dev",
-  "license": "ISC",
-  "dependencies": {
-    "autoprefixer": "^8.6.5",
-    "cssnano": "^3.10.0",
-    "dateformat": "^3.0.3",
-    "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-file-sync": "^2.0.0",
-    "gulp-inject": "^4.3.2",
-    "gulp-javascript-obfuscator": "^1.1.4",
-    "gulp-notify": "^3.2.0",
-    "gulp-path": "^4.0.0",
-    "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1",
-    "mkdirp": "^0.5.1",
-    "mysqldump": "^2.2.1",
-    "path-exists": "^3.0.0",
-    "require-dir": "^1.0.0"
-  },
-  "devDependencies": {}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chr1sp1n/assets-utility.git"
+	},
+	"author": "chr1sp1n-dev",
+	"license": "ISC",
+	"bin" : {
+		"assets-utility" : "gulp"
+	},
+	"dependencies": {
+		"autoprefixer": "^8.6.5",
+		"cssnano": "^3.10.0",
+		"dateformat": "^3.0.3",
+		"del": "^3.0.0",
+		"gulp": "^4.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-file-sync": "^2.0.0",
+		"gulp-inject": "^4.3.2",
+		"gulp-javascript-obfuscator": "^1.1.4",
+		"gulp-notify": "^3.2.0",
+		"gulp-path": "^4.0.0",
+		"gulp-postcss": "^7.0.1",
+		"gulp-rename": "^1.4.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-sass": "^4.0.1",
+		"gulp-sourcemaps": "^2.6.4",
+		"gulp-uglify": "^3.0.1",
+		"mkdirp": "^0.5.1",
+		"mysqldump": "^2.2.1",
+		"path-exists": "^3.0.0",
+		"require-dir": "^1.0.0"
+	}
 }
