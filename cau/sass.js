@@ -28,7 +28,7 @@ module.exports = {
 			// )
 			.pipe(sourcemaps.write())
 			.pipe(
-				gulp.dest( path.join(__dirname, config.basePath, config.get('source.scss.dest')) )
+				gulp.dest( path.join(__dirname, config.basePath, config.get('temp_path'), config.get('source.scss.dest')) )
 					.on( "error", notifier.error(done) )
 			);
 	},
@@ -48,7 +48,7 @@ module.exports = {
 			)
 			//.pipe(sourcemaps.write())
 			.pipe(
-				gulp.dest( path.join(__dirname, config.basePath, config.get('source.scss.dest')) )
+				gulp.dest( path.join(__dirname, config.basePath, config.get('temp_path'), config.get('source.scss.dest')) )
 					.on( "error", notifier.error() )
 			);
 	}

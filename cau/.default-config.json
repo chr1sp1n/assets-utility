@@ -7,33 +7,32 @@
 		"path":				"./source",
 		"scss":{
 			"src":			"{{source.path}}/scss",
-			"dest":			"{{temp_path}}/css",
+			"dest":			"/css",
 			"smacss":		true
 		},
 		"js":{
-			"src":			"{{source.path}}/js",
 			"files":		[],
 			"inject_to":	[ "*.html", "*.php" ],
 			"cocat_to":		"scripts.js",
-			"dest":			"{{temp_path}}/js"
+			"dest":			"/js"
 		}
 	},
 
 	"notifier":{
 		"success":{
-			"title":		"Chr1Sp1n-Dev Assets Uility",
+			"title":		"Assets Uility",
 			"message": 		"Task execution complete",
 			"onLast": 		true,
 			"icon": 		"./assets-utility/cau/notifier/checked.png"
 		},
 		"error":{
-			"title":		"Chr1Sp1n-Dev Assets Uility",
+			"title":		"Assets Uility",
 			"message": 		"Error: ",
 			"onLast": 		false,
 			"icon": 		"./assets-utility/cau/notifier/virus.png"
 		},
 		"message":{
-			"title":		"Chr1Sp1n-Dev Assets Uility",
+			"title":		"Assets Uility",
 			"message": 		"Message: ",
 			"onLast": 		false,
 			"icon": 		"./assets-utility/cau/notifier/info.png"

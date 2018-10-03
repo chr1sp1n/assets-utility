@@ -7,7 +7,7 @@ const cau = requireDir('./cau');
 const pathExists = require('path-exists');
 const path = require('path');
 
-var basePath = '../';
+var basePath = '../../';
 cau.config.basePath = basePath + '../';
 
 var assetsConfigPath = path.join( __dirname, basePath, 'assets-config.json');
@@ -15,15 +15,17 @@ if(pathExists.sync( assetsConfigPath )){
 	console.log('Using config file: ' + assetsConfigPath);
 }
 
-// dev
+// shared tasks
 gulp.task('clean', cau.clean);
+gulp.task('assets', cau.assets);
+gulp.task('success', cau.success);
+
+// dev
 gulp.task('sass:dev', cau.sass.dev);
 gulp.task('js:dev', cau.js.dev);
 gulp.task('js:inject:dev', cau.inject.js.dev);
-gulp.task('assets:dev', cau.assets.dev);
 gulp.task('deploy:dev', cau.deploy.dev);
-gulp.task('success', cau.success);
-gulp.task('dev',
+gulp.task('public:dev',
 	gulp.series(
 		'clean',
 		gulp.parallel(
@@ -38,13 +40,11 @@ gulp.task('dev',
 );
 
 // dist
-gulp.task('clean', cau.clean);
+//gulp.task('clean', cau.clean);
 gulp.task('sass:dist', cau.sass.dist);
 gulp.task('deploy:dist', cau.deploy.dist);
-gulp.task('assets:dist', cau.assets.dist);
 gulp.task('js:dist', cau.js.dist);
-gulp.task('success', cau.success);
-gulp.task('dist',
+gulp.task('public:dist',
 	gulp.series(
 		'clean',
 		gulp.parallel(
@@ -57,19 +57,21 @@ gulp.task('dist',
 	)
 );
 
-gulp.task('init', cau.init);
-gulp.task('watch', cau.watch);
-gulp.task('db:dump', cau.db);
 
-gulp.task('default', gulp.series('dev'));
+// public tasks
+gulp.task('public:init', cau.init);
+gulp.task('public:watch', cau.watch);
+gulp.task('public:db:dump', cau.db);
+
+//gulp.task('default', gulp.series('dev'));
 
 
 module.exports = function(){
 
 	var args = process.argv.slice(2);
-	if(args.length > 0){
-		if(gulp.task(args[0])){
-			gulp.series('success')( err => {
+	if(args.length == 1){
+		if(gulp.task('public:' + args[0])){
+			gulp.series('public:' + args[0])( err => {
 				if(err) console.error(err);
 			});
 		}else{
