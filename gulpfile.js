@@ -32,7 +32,7 @@ gulp.task('public:dev',
 			'sass:dev',
 			'js:dev',
 			'js:inject:dev',
-			'assets:dev'
+			'assets'
 		),
 		'deploy:dev',
 		'success'
@@ -50,7 +50,7 @@ gulp.task('public:dist',
 		gulp.parallel(
 			'sass:dist',
 			'js:dist',
-			'assets:dist'
+			'assets'
 		),
 		'deploy:dist',
 		'success'
