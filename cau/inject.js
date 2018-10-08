@@ -16,6 +16,7 @@ module.exports = {
 			if(exceptions){
 				exceptions.forEach( function(e) {
 					targets.push( path.join( __dirname, config.basePath, config.get('source.path')) + '/' + e );
+					//targets.push( path.join( __dirname, config.basePath, config.get(e) ) );
 				});
 			}
 			var target = gulp.src( targets );
@@ -24,27 +25,23 @@ module.exports = {
 			var files = [];
 			filesRaw.forEach( function(f, i) {
 				f = config.get('source.js.files['+ i +']');
-				files.push( f );
+				files.push( path.join( __dirname, config.basePath, f ) );
 			});
 
 			if(files.length > 0){
-				var sources = gulp.src(
-					files,
-					{ read: false }
-				);
+				var temp = path.join( __dirname, config.basePath, config.get('temp_path'));
 				return target.pipe(
 					inject(
-						sources,
+						gulp.src( files, { read: false } ),
 						{
 							transform: function(filepath){
-								console.log(filepath);
 								var file = path.join( config.get('source.js.dest') , path.basename(filepath) );
 								return file.split('\\').join('/');
 							}
 						}
 					)
 				)
-				.pipe( gulp.dest( path.join(__dirname, config.basePath, config.get('temp_path') + '/' )) );
+				.pipe( gulp.dest( temp ) );
 			}
 			done();
 		},
