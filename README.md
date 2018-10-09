@@ -19,7 +19,7 @@
 ### **Installazione:**
 
 -	Installare assets-utility come dipendenza di sviluppo:
-> `npm install --save-dev https://github.com/chr1sp1n/assets-utility.git@1.1`
+> `npm install --save-dev https://github.com/chr1sp1n/assets-utility.git#1.1`
 
 -	Inizializzazione degli assets:
 > `./node_modules/.bin/assets-utility init`
