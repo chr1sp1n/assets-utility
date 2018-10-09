@@ -75,7 +75,12 @@ I task sopra elencati vengono eseguiti parallelamente al fine di ottimizzare il 
 
 &nbsp;Task 3 - `js:dev` provvede alla copia dei file JavaScript nella cartella definita in `source.js.dest` all'interno della cartella temporanea  dei files presenti nell'array `source.js.files` preservandone lo scaffolding originale.
 
-&nbsp;Task 4 - `js:inject:dev` provvede all'inserimento nel codice html dei tag `<script></script>` che fanno riferimento ai files js presenti nell'array `source.js.files` preservandone la sequenza. Nell'array di configurazione `source.js.inject_to` è possibile specificare i files in cui inserire i tag script.
+&nbsp;Task 4 - `js:inject:dev` provvede all'inserimento nel codice html dei tag `<script></script>` che fanno riferimento ai files js presenti nell'array `source.js.files` preservandone la sequenza. Nell'array di configurazione `source.js.inject_to` è possibile specificare i files in cui effettuare l'inserimento.
+<br>Il task utilizza il seguente codice, da aggiungere al codice HTML, per determinare dove inserire i tag `<script></script>`.
+```
+<!-- inject:js -->
+<!-- endinject -->
+```
 
 &nbsp;Task 5 - `assets` provvede alla copia di eventiali file e cartelle presenti nel percorso definito con l'opzione `source.path` che non sono stati processati dai task precedenti. Ad esempio file e cartelle come fonts, images, index.php, favicon.ico, etc. E' possibile replicare la struttura si tema wordpress, drupal, etc.
 
